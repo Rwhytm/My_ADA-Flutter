@@ -11,13 +11,35 @@ TextStyle judulHitamPudar = GoogleFonts.poppins(
 );
 
 TextStyle judulAppBAr = GoogleFonts.poppins(
-  color: putih,
-  fontSize: 20,
-  fontWeight: FontWeight.w900,
-);
+    color: putih,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    shadows: <Shadow>[
+      const Shadow(
+        offset: Offset(5.0, 5.0),
+        blurRadius: 25.0,
+        color: Color.fromARGB(255, 0, 0, 0),
+      ),
+    ]);
 
 TextStyle judulBiru = GoogleFonts.poppins(
   color: subtitleBiru,
   fontSize: 10,
   fontWeight: FontWeight.w900,
+);
+
+TextStyle penjelasanTextStyle = GoogleFonts.roboto(
+  color: putih,
+  fontSize: 13,
+);
+
+TextStyle deskripsiHitamTextStyle = GoogleFonts.roboto(
+  color: Colors.black,
+  fontSize: 10,
+);
+
+TextStyle textLogoTextStyle = GoogleFonts.poppins(
+  color: putih,
+  fontWeight: FontWeight.bold,
+  fontSize: 10,
 );
