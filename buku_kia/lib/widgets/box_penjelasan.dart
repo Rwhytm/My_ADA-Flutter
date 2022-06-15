@@ -19,11 +19,12 @@ class BoxPenjelasan extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Container(
+      margin: EdgeInsets.all(5),
       width: width * 0.9,
       decoration: BoxDecoration(
         color: putih,
         shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(57),
+        borderRadius: BorderRadius.circular(37),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,17 +32,18 @@ class BoxPenjelasan extends StatelessWidget {
           Container(
             width: 100,
             height: 100,
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             margin: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
-              color: Colors.amber,
+              color: bundaranUngu,
             ),
             child: Align(
               alignment: Alignment.center,
               child: Text(
                 textlogo,
                 style: textLogoTextStyle,
+                textAlign: TextAlign.center,
               ),
             ),
           ),

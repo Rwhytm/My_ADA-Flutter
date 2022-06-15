@@ -24,7 +24,7 @@ TextStyle judulAppBAr = GoogleFonts.poppins(
 
 TextStyle judulBiru = GoogleFonts.poppins(
   color: subtitleBiru,
-  fontSize: 10,
+  fontSize: 11,
   fontWeight: FontWeight.w900,
 );
 
