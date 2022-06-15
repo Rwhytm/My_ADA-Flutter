@@ -4,10 +4,18 @@ import 'package:buku_kia/themes/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-TextStyle judulHitamPudar = GoogleFonts.poppins(
+//judul besar
+TextStyle judulHitamPudarTextStyle = GoogleFonts.poppins(
   color: subtitleHitam,
   fontSize: 15,
   fontWeight: FontWeight.w900,
+);
+
+//subjudulbesar
+TextStyle subjudulHitamPudarTextStyle = GoogleFonts.poppins(
+  color: subtitleHitam,
+  fontSize: 10,
+  fontWeight: FontWeight.w800,
 );
 
 TextStyle judulAppBAr = GoogleFonts.poppins(
@@ -35,7 +43,7 @@ TextStyle penjelasanTextStyle = GoogleFonts.roboto(
 
 TextStyle deskripsiHitamTextStyle = GoogleFonts.roboto(
   color: Colors.black,
-  fontSize: 10,
+  fontSize: 11,
 );
 
 TextStyle textLogoTextStyle = GoogleFonts.poppins(

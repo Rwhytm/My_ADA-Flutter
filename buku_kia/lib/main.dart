@@ -1,3 +1,4 @@
+import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/penjelasan_umum.dart';
 import 'package:buku_kia/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Penjelasan(),
+      home: IbuHamil1(),
     );
   }
 }

@@ -13,11 +13,14 @@ class Penjelasan extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: appBarUngu,
         actions: [
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Penjelasan Umum',
-              style: judulAppBAr,
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Penjelasan Umum',
+                style: judulAppBAr,
+              ),
             ),
           ),
         ],
