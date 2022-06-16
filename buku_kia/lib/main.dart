@@ -1,3 +1,4 @@
+import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil2.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil3.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IbuHamil8(),
+      home: IbuBersalin1(),
     );
   }
 }
