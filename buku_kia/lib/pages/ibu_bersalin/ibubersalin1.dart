@@ -23,7 +23,7 @@ class IbuBersalin1 extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               child: Text(
-                'Ibu Hamil',
+                'Ibu Bersalin',
                 style: judulAppBAr,
               ),
             ),

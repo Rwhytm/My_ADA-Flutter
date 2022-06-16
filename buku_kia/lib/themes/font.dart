@@ -11,6 +11,12 @@ TextStyle judulHitamPudarTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w900,
 );
 
+TextStyle peringatanMerahTextStyle = GoogleFonts.poppins(
+  color: merahBox,
+  fontSize: 15,
+  fontWeight: FontWeight.w900,
+);
+
 //subjudulbesar
 TextStyle subjudulHitamPudarTextStyle = GoogleFonts.poppins(
   color: subtitleHitam,
