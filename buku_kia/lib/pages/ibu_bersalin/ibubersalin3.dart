@@ -6,6 +6,7 @@ import 'package:buku_kia/widgets/list_deskripsi.dart';
 import 'package:buku_kia/widgets/peringatan_widget.dart';
 import 'package:buku_kia/widgets/subtitle_biru.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class IbuBersalin3 extends StatelessWidget {
   const IbuBersalin3({Key? key}) : super(key: key);
@@ -144,6 +145,23 @@ class IbuBersalin3 extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 20),
+                color: merahBox,
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                width: width * 0.8,
+                child: Center(
+                    child: Text(
+                  'Jika muncul salah satu tanda di atas SEGERA RUJUK IBU KE RUMAH SAKIT',
+                  style: GoogleFonts.poppins(
+                    color: putih,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                )),
+              ),
             ),
           ],
         ),
