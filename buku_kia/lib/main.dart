@@ -11,6 +11,7 @@ import 'package:buku_kia/pages/ibu_hamil/ibuhamil7.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil8.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas2.dart';
+import 'package:buku_kia/pages/ibu_nifas/ibunifas3.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas4.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas5.dart';
 import 'package:buku_kia/pages/penjelasan_umum.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IbuNifas5(),
+      home: IbuNifas3(),
     );
   }
 }
