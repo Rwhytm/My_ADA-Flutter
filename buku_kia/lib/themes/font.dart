@@ -25,16 +25,23 @@ TextStyle subjudulHitamPudarTextStyle = GoogleFonts.poppins(
 );
 
 TextStyle judulAppBAr = GoogleFonts.poppins(
-    color: putih,
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
-    shadows: <Shadow>[
-      const Shadow(
-        offset: Offset(5.0, 5.0),
-        blurRadius: 25.0,
-        color: Color.fromARGB(255, 0, 0, 0),
-      ),
-    ]);
+  color: putih,
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+  shadows: <Shadow>[
+    const Shadow(
+      offset: Offset(5.0, 5.0),
+      blurRadius: 25.0,
+      color: Color.fromARGB(255, 0, 0, 0),
+    ),
+  ],
+);
+
+TextStyle daftarIsi = GoogleFonts.poppins(
+  color: putih,
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle judulBiru = GoogleFonts.poppins(
   color: subtitleBiru,
