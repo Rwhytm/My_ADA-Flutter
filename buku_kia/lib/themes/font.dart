@@ -39,7 +39,7 @@ TextStyle judulAppBAr = GoogleFonts.poppins(
 
 TextStyle daftarIsi = GoogleFonts.poppins(
   color: putih,
-  fontSize: 15,
+  fontSize: 10,
   fontWeight: FontWeight.w600,
 );
 

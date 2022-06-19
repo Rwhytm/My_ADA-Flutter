@@ -1,5 +1,7 @@
 import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
+import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
+import 'package:buku_kia/pages/keluarga_berencana/keluargaberencana.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +28,8 @@ class DaftarIsi extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.all(25),
-        color: Color(0xffD9D9D9),
+        padding: const EdgeInsets.all(25),
+        color: const Color(0xffFF93DF),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,19 +49,23 @@ class DaftarIsi extends StatelessWidget {
                       width: 150,
                       height: 150,
                       decoration: BoxDecoration(
-                        color: Color(0xffDB65B8),
+                        color: ibuHamilColor,
                         borderRadius: BorderRadius.circular(27),
                       ),
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(5),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          Text(
+                            "Ibu Hamil",
+                            style: daftarIsi,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             'assets/images/cium.png',
                             width: 100,
-                          ),
-                          Text(
-                            "Ibu Bersalin",
-                            style: daftarIsi,
                           ),
                         ],
                       ),
@@ -70,25 +76,29 @@ class DaftarIsi extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const IbuHamil1()),
+                            builder: (context) => const IbuNifas1()),
                       );
                     },
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(27),
-                        color: Color(0xffDB65B8),
+                        color: ibuNifasColor,
                       ),
                       width: 150,
                       height: 150,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(5),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image.asset(
                             'assets/images/makan.png',
                             width: 100,
                           ),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text(
-                            "Ibu Bersalin",
+                            "Ibu Nifas",
                             style: daftarIsi,
                           ),
                         ],
@@ -107,20 +117,27 @@ class DaftarIsi extends StatelessWidget {
                       child: Container(
                         width: 150,
                         height: 150,
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Color(0xffDB65B8),
+                          color: catatanColor,
                           borderRadius: BorderRadius.circular(27),
                         ),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Image.asset(
                               'assets/images/form.png',
                               width: 100,
                             ),
-                            Text(
-                              "Ibu Bersalin",
-                              style: daftarIsi,
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Flexible(
+                              child: Text(
+                                "Catatan Kesehatan Ibu Hamil",
+                                textAlign: TextAlign.center,
+                                style: daftarIsi,
+                              ),
                             ),
                           ],
                         ),
@@ -137,22 +154,26 @@ class DaftarIsi extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const IbuHamil1()),
+                            builder: (context) => const IbuBersalin1()),
                       );
                     },
                     child: Container(
                       width: 150,
                       height: 150,
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        color: Color(0xffDB65B8),
+                        color: ibuBersalinColor,
                         borderRadius: BorderRadius.circular(27),
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image.asset(
                             'assets/images/bersalin.png',
                             width: 100,
+                          ),
+                          const SizedBox(
+                            height: 10,
                           ),
                           Text(
                             "Ibu Bersalin",
@@ -167,29 +188,36 @@ class DaftarIsi extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const IbuHamil1()),
+                            builder: (context) => const KeluargaBerencana()),
                       );
                     },
                     child: Container(
                       width: 150,
                       height: 150,
-                      padding: EdgeInsets.all(25),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        color: Color(0xffDB65B8),
+                        color: keluargaBerencanaColor,
                         borderRadius: BorderRadius.circular(27),
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          Flexible(
+                            child: Text(
+                              "Keluarga Berencana",
+                              style: daftarIsi,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Image.asset(
                             'assets/images/obat.png',
                             width: 100,
                           ),
                           const SizedBox(
                             height: 20,
-                          ),
-                          Text(
-                            "Ibu Bersalin",
-                            style: daftarIsi,
                           ),
                         ],
                       ),
