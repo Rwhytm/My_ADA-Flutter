@@ -13,8 +13,8 @@ const Color hijauTua = Color(0xff30C13E);
 const Color merahBox = Color(0xffFD4343);
 const Color putih = Color(0xffFFFFFF);
 
-const Color ibuBersalinColor = Color(0xffDA38F4);
-const Color ibuHamilColor = Color(0xffFE5C66);
+const Color ibuBersalinColor = Color(0xffFE5CC7);
+const Color ibuHamilColor = Color(0xffFE5CC7);
 const Color ibuNifasColor = Color(0xffFE5CC7);
-const Color keluargaBerencanaColor = Color(0xff388FF4);
-const Color catatanColor = Color(0xff55CD0B);
+const Color keluargaBerencanaColor = Color(0xffFE5CC7);
+const Color catatanColor = Color(0xffFE5CC7);
