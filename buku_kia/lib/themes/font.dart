@@ -30,8 +30,8 @@ TextStyle judulAppBAr = GoogleFonts.poppins(
   fontWeight: FontWeight.w700,
   shadows: <Shadow>[
     const Shadow(
-      offset: Offset(5.0, 5.0),
-      blurRadius: 25.0,
+      offset: Offset(3.0, 3.0),
+      blurRadius: 40.0,
       color: Color.fromARGB(255, 0, 0, 0),
     ),
   ],
