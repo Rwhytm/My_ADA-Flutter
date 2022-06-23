@@ -1,4 +1,4 @@
-package com.example.buku_kia
+package com.techid.buku_kia
 
 import io.flutter.embedding.android.FlutterActivity
 

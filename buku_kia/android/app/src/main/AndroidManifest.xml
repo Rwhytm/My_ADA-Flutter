@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.buku_kia">
+    package="com.techid.buku_kia">
    <application
         android:label="buku_kia"
         android:name="${applicationName}"
