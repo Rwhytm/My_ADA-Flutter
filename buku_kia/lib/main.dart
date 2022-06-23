@@ -1,3 +1,5 @@
+import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/registrasi.dart';
 import 'package:buku_kia/pages/splash_screen.dart';
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Registrasi(),
+      home: Pemeriksaan(),
     );
   }
 }

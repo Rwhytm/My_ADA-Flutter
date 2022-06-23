@@ -64,3 +64,9 @@ TextStyle textLogoTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.bold,
   fontSize: 10,
 );
+
+TextStyle textTableStyle = GoogleFonts.poppins(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontSize: 10,
+);
