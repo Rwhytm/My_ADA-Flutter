@@ -1,5 +1,6 @@
 import 'package:buku_kia/themes/color.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
@@ -9,7 +10,7 @@ class RoundedButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.press,
-    this.color = backgroundPink,
+    this.color = putih,
     this.textColor = Colors.black,
   }) : super(key: key);
 
@@ -17,8 +18,8 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: size.width * 0.8,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      width: size.width * 0.7,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: newElevatedButton(),
@@ -41,10 +42,14 @@ class RoundedButton extends StatelessWidget {
             }
           : null,
       style: ElevatedButton.styleFrom(
-          primary: color,
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-          textStyle: TextStyle(
-              color: textColor, fontSize: 14, fontWeight: FontWeight.w500)),
+        primary: color,
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+        textStyle: GoogleFonts.poppins(
+          color: textColor,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }

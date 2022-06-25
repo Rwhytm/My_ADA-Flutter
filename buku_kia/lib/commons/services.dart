@@ -8,20 +8,16 @@ class AuthServices {
   static FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  // static Future<String?> pasienSignUp(String nik, String nama) async {
-  //   try {} catch (e) {}
-  // }
-
 //register admin
   static Future<User?> signUp(String nik, String nama) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
-          email: nik + "@gmail.com", password: nama);
+          email: nik + "@kia.com", password: nama);
 
       User? firebaseUser = result.user;
       await FirebaseFirestore.instance
-          .collection('pasien')
-          .add({'nama': nama, "nik": nik})
+          .collection('pasiens')
+          .add({'nama': nama.toUpperCase(), "nik": nik})
           .then(
             (value) => print('Pasien berhasil ditambah'),
           )

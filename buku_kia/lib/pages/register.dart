@@ -27,7 +27,6 @@ class _RegisterState extends State<Register> {
         child: Center(
           child: Column(
             children: [
-              const JudulBesar(judul: "Buat Akun"),
               SvgPicture.asset(
                 "assets/images/signup.svg",
                 height: size.height * 0.35,
@@ -36,6 +35,7 @@ class _RegisterState extends State<Register> {
                 height: 10,
               ),
               RoundedInputField(
+                keyboard: TextInputType.number,
                 controller: nikController,
                 hintText: "Masukkan NIK",
               ),
@@ -43,16 +43,34 @@ class _RegisterState extends State<Register> {
                 height: 10,
               ),
               RoundedInputField(
+                keyboard: TextInputType.name,
                 controller: namaIbuController,
                 hintText: "Masukkan Nama Ibu",
+              ),
+              const SizedBox(
+                height: 25,
               ),
               RoundedButton(
                 text: "Register",
                 press: () async {
-                  await AuthServices.signUp(
-                    nikController.text,
-                    namaIbuController.text,
-                  );
+                  try {
+                    await AuthServices.signUp(
+                      nikController.text,
+                      namaIbuController.text,
+                    );
+
+                    await ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Berhasil melakukan registrasi'),
+                      ),
+                    );
+                  } catch (e) {
+                    await ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(e.toString()),
+                      ),
+                    );
+                  }
                 },
               ),
             ],
