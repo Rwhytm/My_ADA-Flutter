@@ -1,8 +1,5 @@
-import 'dart:collection';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class AuthServices {
   static FirebaseAuth _auth = FirebaseAuth.instance;
@@ -24,6 +21,22 @@ class AuthServices {
           .catchError(
             (error) => print('Pasien gagal ditambahkan $error'),
           );
+      return firebaseUser;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  //login
+  static Future<User?> signIn(String nik, String nama) async {
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(
+        email: nik + "@kia.com",
+        password: nama,
+      );
+
+      User? firebaseUser = result.user;
       return firebaseUser;
     } catch (e) {
       print(e.toString());
