@@ -1,3 +1,4 @@
+import 'package:buku_kia/pages/ibu_bersalin/ibubersalin2.dart';
 import 'package:flutter/material.dart';
 
 import 'package:buku_kia/themes/color.dart';
@@ -62,8 +63,41 @@ class IbuBersalin1 extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 100,
+            ),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            bottom: 20,
+            right: 30,
+            child: FloatingActionButton(
+              backgroundColor: orangeTua,
+              heroTag: 'next',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => new IbuBersalin2(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.arrow_right,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
+        ],
       ),
     );
   }

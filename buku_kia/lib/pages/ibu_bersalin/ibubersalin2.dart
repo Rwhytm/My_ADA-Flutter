@@ -1,3 +1,4 @@
+import 'package:buku_kia/pages/ibu_bersalin/ibubersalin3.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:buku_kia/widgets/box_orange.dart';
@@ -15,6 +16,7 @@ class IbuBersalin2 extends StatelessWidget {
     return Scaffold(
       backgroundColor: orangeMuda,
       appBar: AppBar(
+        leading: Text(''),
         backgroundColor: orangeTua,
         actions: [
           Padding(
@@ -82,8 +84,59 @@ class IbuBersalin2 extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 100,
+            ),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            left: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              backgroundColor: orangeTua,
+              heroTag: 'back',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_left,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 30,
+            child: FloatingActionButton(
+              backgroundColor: orangeTua,
+              heroTag: 'next',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => new IbuBersalin3(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.arrow_right,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
+        ],
       ),
     );
   }
