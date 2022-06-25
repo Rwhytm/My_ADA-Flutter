@@ -16,8 +16,6 @@ class Login extends StatefulWidget {
 }
 
 class _RegisterState extends State<Login> {
-  int index = 2;
-  bool isSwitched = false;
   bool _login = false;
   TextEditingController nikController = TextEditingController(text: "");
   TextEditingController namaIbuController = TextEditingController(text: "");
@@ -31,38 +29,6 @@ class _RegisterState extends State<Login> {
         child: Center(
           child: Column(
             children: [
-              Container(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'PASIEN',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Switch(
-                    value: isSwitched,
-                    onChanged: (value) {
-                      setState(
-                        () {
-                          isSwitched = value;
-                        },
-                      );
-                    },
-                  ),
-                  Text(
-                    'BIDAN',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              )),
               SvgPicture.asset(
                 "assets/images/signup.svg",
                 height: size.height * 0.35,
@@ -71,9 +37,7 @@ class _RegisterState extends State<Login> {
                 height: 10,
               ),
               Text(
-                (isSwitched == true
-                    ? "Login Sebagai Bidan"
-                    : "Login Sebagai Pasien"),
+                "Login",
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -86,9 +50,7 @@ class _RegisterState extends State<Login> {
               RoundedInputField(
                 keyboard: TextInputType.number,
                 controller: nikController,
-                hintText: (isSwitched == true
-                    ? "Masukkan No. Bidan"
-                    : "Masukkan NIK"),
+                hintText: "Masukkan NIK",
               ),
               const SizedBox(
                 height: 10,
@@ -96,9 +58,7 @@ class _RegisterState extends State<Login> {
               RoundedInputField(
                 keyboard: TextInputType.name,
                 controller: namaIbuController,
-                hintText: (isSwitched == true
-                    ? "Masukkan Nama Bidan"
-                    : "Masukkan nama Ibu"),
+                hintText: "Masukkan nama Ibu",
               ),
               const SizedBox(
                 height: 25,

@@ -5,8 +5,8 @@ class AuthServices {
   static FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-//register admin
-  static Future<User?> signUp(String nik, String nama) async {
+//register pasien
+  static Future<User?> signUpPasien(String nik, String nama) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: nik + "@kia.com", password: nama);

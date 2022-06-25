@@ -17,7 +17,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  bool isSwitched = false;
   bool _registering = false;
   TextEditingController nikController = TextEditingController(text: "");
   TextEditingController namaIbuController = TextEditingController(text: "");
@@ -31,38 +30,6 @@ class _RegisterState extends State<Register> {
         child: Center(
           child: Column(
             children: [
-              Container(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'PASIEN',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Switch(
-                    value: isSwitched,
-                    onChanged: (value) {
-                      setState(
-                        () {
-                          isSwitched = value;
-                        },
-                      );
-                    },
-                  ),
-                  Text(
-                    'BIDAN',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              )),
               SvgPicture.asset(
                 "assets/images/signup.svg",
                 height: size.height * 0.35,
@@ -71,9 +38,7 @@ class _RegisterState extends State<Register> {
                 height: 10,
               ),
               Text(
-                (isSwitched == true
-                    ? "Register Sebagai Bidan"
-                    : "Register Sebagai Pasien"),
+                "Register",
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -103,7 +68,7 @@ class _RegisterState extends State<Register> {
                 text: "Register",
                 press: () async {
                   try {
-                    await AuthServices.signUp(
+                    await AuthServices.signUpPasien(
                       nikController.text,
                       namaIbuController.text,
                     );
