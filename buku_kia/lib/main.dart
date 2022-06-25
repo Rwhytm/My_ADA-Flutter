@@ -1,3 +1,4 @@
+import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
@@ -7,6 +8,7 @@ import 'package:buku_kia/pages/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,9 +21,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Register(),
+    return StreamProvider.value(
+      value: AuthServices.FirebaseUserStream,
+      initialData: null,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Register(),
+      ),
     );
   }
 }

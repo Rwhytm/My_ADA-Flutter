@@ -1,3 +1,4 @@
+import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
@@ -13,6 +14,20 @@ class DaftarIsi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.login_outlined,
+          ),
+          onPressed: () async {
+            await AuthServices.signOut();
+
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Logout Berhasil'),
+              ),
+            );
+          },
+        ),
         backgroundColor: backgroundPink,
         actions: [
           Padding(

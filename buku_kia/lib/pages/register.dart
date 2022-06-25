@@ -1,5 +1,6 @@
 import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/login.dart';
+import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/judul_besar.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
@@ -73,18 +74,27 @@ class _RegisterState extends State<Register> {
                       namaIbuController.text,
                     );
 
-                    await ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Berhasil melakukan registrasi'),
                       ),
                     );
                   } catch (e) {
-                    await ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(e.toString()),
                       ),
                     );
                   }
+
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Wrapper();
+                      },
+                    ),
+                  );
                 },
               ),
               Row(
