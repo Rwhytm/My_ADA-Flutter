@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider.value(
-      value: AuthServices.FirebaseUserStream,
+      value: AuthServices.firebaseUserStream,
       initialData: null,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

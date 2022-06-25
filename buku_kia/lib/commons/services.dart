@@ -7,6 +7,8 @@ class AuthServices {
   static User user = _auth.currentUser!;
   final id = user.uid;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference _pasien =
+      FirebaseFirestore.instance.collection('pasiens');
 
 //register pasien
   static Future<User?> signUpPasien(String nik, String nama) async {
@@ -89,6 +91,8 @@ class AuthServices {
       'nomor registrasi ibu': noreg,
       'nomor urut di kahort ibu': nourutKahort,
       'tanggal menerima buku kia': tanggalMenerima,
+      'nama petugas': namaPetugas,
+      'nomor petugas': noHPPetugas,
       'TTL ibu': ttdIbu,
       'kehamilan ke-': kehamilanKe,
       'agama ibu': agamaIbu,
@@ -113,5 +117,15 @@ class AuthServices {
     });
   }
 
-  static Stream<User?> get FirebaseUserStream => _auth.authStateChanges();
+  static Future getData() async {
+    var snapshot = await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_pasien')
+        .get();
+
+    return snapshot.docs.map((doc) => doc.data()).toList();
+  }
+
+  static Stream<User?> get firebaseUserStream => _auth.authStateChanges();
 }

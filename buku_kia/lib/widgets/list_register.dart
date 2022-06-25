@@ -23,9 +23,11 @@ class ListRegistrasi extends StatelessWidget {
           deskripsi: ':',
           padding: 0,
         ),
-        DeskripsiWidget(
-          deskripsi: jawaban,
-          padding: 15,
+        Flexible(
+          child: DeskripsiWidget(
+            deskripsi: jawaban,
+            padding: 15,
+          ),
         ),
       ],
     );
