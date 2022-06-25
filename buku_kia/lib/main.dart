@@ -5,6 +5,7 @@ import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/register.dart';
 import 'package:buku_kia/pages/registrasi.dart';
 import 'package:buku_kia/pages/splash_screen.dart';
+import 'package:buku_kia/pages/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Register(),
+        home: SplashScreen(),
       ),
     );
   }

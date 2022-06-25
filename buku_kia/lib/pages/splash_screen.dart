@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:buku_kia/pages/daftar_isi.dart';
+import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,22 +16,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // void initState() {
-  //   splashTimer();
-  //   super.initState();
-  // }
+  void initState() {
+    splashTimer();
+    super.initState();
+  }
 
-  // Future<Timer> splashTimer() async {
-  //   return Timer(Duration(seconds: 4), onDone);
-  // }
+  Future<Timer> splashTimer() async {
+    return Timer(Duration(seconds: 4), onDone);
+  }
 
-  // void onDone() {
-  //   Navigator.of(context).pushReplacement(
-  //     MaterialPageRoute(
-  //       builder: (context) => DaftarIsi(),
-  //     ),
-  //   );
-  // }
+  void onDone() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => Wrapper(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
