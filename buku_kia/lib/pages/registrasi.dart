@@ -1,3 +1,5 @@
+import 'package:buku_kia/pages/ibu_nifas/ibunifas3.dart';
+import 'package:buku_kia/pages/tambah_data_registrasi.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:buku_kia/widgets/deskripsi_widget.dart';
@@ -220,10 +222,44 @@ class _RegistrasiState extends State<Registrasi> {
                     ],
                   ),
                 ),
+                const SizedBox(
+                  height: 100,
+                ),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            bottom: 20,
+            right: 30,
+            child: FloatingActionButton(
+              backgroundColor: putih,
+              heroTag: 'next',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => new TambahRegistrasi(),
+                  ),
+                );
+              },
+              child: const Icon(
+                Icons.add,
+                size: 40,
+                color: orangeTua,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
+        ],
       ),
     );
   }

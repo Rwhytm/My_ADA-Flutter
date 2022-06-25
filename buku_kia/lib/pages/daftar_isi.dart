@@ -3,6 +3,7 @@ import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
 import 'package:buku_kia/pages/keluarga_berencana/keluargaberencana.dart';
+import 'package:buku_kia/pages/registrasi.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,46 @@ class DaftarIsi extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Registrasi(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 150,
+                        height: 150,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: catatanColor,
+                          borderRadius: BorderRadius.circular(27),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/form.png',
+                              width: 100,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Flexible(
+                              child: Text(
+                                "Registrasi",
+                                textAlign: TextAlign.center,
+                                style: daftarIsi,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -117,45 +158,6 @@ class DaftarIsi extends StatelessWidget {
                             style: daftarIsi,
                           ),
                         ],
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const IbuHamil1()),
-                        );
-                      },
-                      child: Container(
-                        width: 150,
-                        height: 150,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: catatanColor,
-                          borderRadius: BorderRadius.circular(27),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/images/form.png',
-                              width: 100,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Flexible(
-                              child: Text(
-                                "Catatan Kesehatan Ibu Hamil",
-                                textAlign: TextAlign.center,
-                                style: daftarIsi,
-                              ),
-                            ),
-                          ],
-                        ),
                       ),
                     ),
                   ),
@@ -238,10 +240,45 @@ class DaftarIsi extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    width: 150,
-                    height: 150,
-                  )
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const IbuHamil1()),
+                        );
+                      },
+                      child: Container(
+                        width: 150,
+                        height: 150,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: catatanColor,
+                          borderRadius: BorderRadius.circular(27),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/form.png',
+                              width: 100,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Flexible(
+                              child: Text(
+                                "Catatan Kesehatan Ibu Hamil",
+                                textAlign: TextAlign.center,
+                                style: daftarIsi,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
