@@ -67,31 +67,22 @@ class _RegisterState extends State<Login> {
               RoundedButton(
                 text: "Login",
                 press: () async {
-                  try {
-                    await AuthServices.signIn(
-                      nikController.text,
-                      namaIbuController.text,
-                    );
-
-                    await ScaffoldMessenger.of(context).showSnackBar(
+                  await AuthServices.signIn(
+                    nikController.text,
+                    namaIbuController.text,
+                  ).then(
+                    (value) => ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Login Berhasil'),
+                        content: Text(value != null
+                            ? "Login Berhasil"
+                            : "Data Anda Salah"),
                       ),
-                    );
-                  } catch (e) {
-                    await ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(e.toString()),
-                      ),
-                    );
-                  }
+                    ),
+                  );
 
-                  await Navigator.push(
-                    context,
+                  await Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) {
-                        return Wrapper();
-                      },
+                      builder: (context) => Wrapper(),
                     ),
                   );
                 },
