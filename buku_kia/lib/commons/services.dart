@@ -128,7 +128,7 @@ class AuthServices {
   }
 
   //tambah data diri keluhan
-  static Future<User?> keluhanDataDiri(
+  static Future<User?> pemeriksaanDataDiri(
     String hamilke,
     String jumlahPersalinan,
     String jumlahKeguguran,
@@ -143,7 +143,7 @@ class AuthServices {
     await FirebaseFirestore.instance
         .collection('pasiens')
         .doc(user.uid)
-        .collection('data_diri_keluhan')
+        .collection('data_diri_pemeriksaan')
         .add({
       'hamil ke': hamilke,
       'jumlah persalinan': jumlahPersalinan,
@@ -158,7 +158,7 @@ class AuthServices {
   }
 
   //tambah data diri pemeriksaan
-  static Future<User?> pemeriksaanDataDiri(
+  static Future<User?> keluhanDataDiri(
     String hariPertamaHaid,
     String htp,
     String lingkarLenganAtas,
@@ -171,7 +171,7 @@ class AuthServices {
     await FirebaseFirestore.instance
         .collection('pasiens')
         .doc(user.uid)
-        .collection('data_diri_perawatan')
+        .collection('data_diri_keluhan')
         .add({
       'Hari Pertama HAIN': hariPertamaHaid,
       'hari taksiran': htp,

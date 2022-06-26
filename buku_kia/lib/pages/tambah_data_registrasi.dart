@@ -1,26 +1,19 @@
 import 'package:buku_kia/commons/services.dart';
-import 'package:buku_kia/pages/login.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
-import 'package:buku_kia/widgets/judul_besar.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
 import 'package:buku_kia/widgets/rounded_input_field.dart';
-import 'package:buku_kia/widgets/subjudulBesar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TambahRegistrasi extends StatefulWidget {
-  TambahRegistrasi({Key? key}) : super(key: key);
+  const TambahRegistrasi({Key? key}) : super(key: key);
 
   @override
-  State<TambahRegistrasi> createState() => _RegisterState();
+  State<TambahRegistrasi> createState() => _TambahRegisterState();
 }
 
-class _RegisterState extends State<TambahRegistrasi> {
-  bool _registering = false;
+class _TambahRegisterState extends State<TambahRegistrasi> {
   TextEditingController noRegistrasiController =
       TextEditingController(text: "");
   TextEditingController nomorUrutKahortController =
@@ -338,53 +331,55 @@ class _RegisterState extends State<TambahRegistrasi> {
               RoundedButton(
                 text: "Simpan",
                 press: () async {
-                  try {
-                    await AuthServices.registrasi(
-                      noRegistrasiController.text,
-                      nomorUrutKahortController.text,
-                      ttdIbuController.text,
-                      namaTenagaKesehatanController.text,
-                      noHPTenagaKesehatanController.text,
-                      ttdIbuController.text,
-                      kehamilankeController.text,
-                      agamaIbuController.text,
-                      pendidikanIbuController.text,
-                      goldarIbuController.text,
-                      pekerjaanIbuController.text,
-                      noJknController.text,
-                      namaAyahController.text,
-                      ttdAyahController.text,
-                      agamaAyahController.text,
-                      pendidikanAyahController.text,
-                      goldarAyahController.text,
-                      pekerjaanAyahController.text,
-                      alamatRumahController.text,
-                      kecamatanController.text,
-                      kabupatenController.text,
-                      noHPDihubungiController.text,
-                      namaAnakController.text,
-                      ttdAnakController.text,
-                      anakKeController.text,
-                      noAkteController.text,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Berhasil melakukan registrasi'),
-                      ),
-                    );
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(e.toString()),
-                      ),
-                    );
-                  }
+                  await AuthServices.registrasi(
+                    noRegistrasiController.text,
+                    nomorUrutKahortController.text,
+                    ttdIbuController.text,
+                    namaTenagaKesehatanController.text,
+                    noHPTenagaKesehatanController.text,
+                    ttdIbuController.text,
+                    kehamilankeController.text,
+                    agamaIbuController.text,
+                    pendidikanIbuController.text,
+                    goldarIbuController.text,
+                    pekerjaanIbuController.text,
+                    noJknController.text,
+                    namaAyahController.text,
+                    ttdAyahController.text,
+                    agamaAyahController.text,
+                    pendidikanAyahController.text,
+                    goldarAyahController.text,
+                    pekerjaanAyahController.text,
+                    alamatRumahController.text,
+                    kecamatanController.text,
+                    kabupatenController.text,
+                    noHPDihubungiController.text,
+                    namaAnakController.text,
+                    ttdAnakController.text,
+                    anakKeController.text,
+                    noAkteController.text,
+                  )
+                      .then(
+                        (value) => ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Berhasil melakukan registrasi'),
+                          ),
+                        ),
+                      )
+                      .onError(
+                        (error, stackTrace) =>
+                            ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Gagal melakukan registrasi'),
+                          ),
+                        ),
+                      );
 
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Wrapper();
+                        return const Wrapper();
                       },
                     ),
                   );

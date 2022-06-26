@@ -31,387 +31,349 @@ class _RegistrasiState extends State<Registrasi> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return StreamBuilder<QuerySnapshot>(
-        stream: data_user,
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return const Scaffold(
-              body: Center(
-                child: Text('Something went wrong'),
-              ),
-            );
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Scaffold(
-              body: Center(
-                child: Text('Loading....'),
-              ),
-            );
-          }
-          final data = snapshot.requireData;
-          return Scaffold(
-              appBar: AppBar(
-                backgroundColor: orangeTua,
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Registrasi",
-                        style: judulAppBAr,
+      stream: data_user,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Something went wrong'),
+            ),
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Loading....'),
+            ),
+          );
+        }
+        final data = snapshot.requireData;
+        return Scaffold(
+            appBar: AppBar(
+              backgroundColor: orangeTua,
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Registrasi",
+                      style: judulAppBAr,
+                    ),
+                  ),
+                ),
+              ],
+              centerTitle: false,
+            ),
+            body: ListView.builder(
+              itemCount: data.size,
+              itemBuilder: (BuildContext context, int index) {
+                if (snapshot.hasError) {
+                  return const Scaffold(
+                    body: Center(
+                      child: Text('Something went wrong'),
+                    ),
+                  );
+                }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Scaffold(
+                    body: Center(
+                      child: Text('Loading....'),
+                    ),
+                  );
+                }
+                return Container(
+                  padding: const EdgeInsets.all(10),
+                  color: orangeTua,
+                  height: height,
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            width: width * 0.9,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(27),
+                              color: orangeMuda,
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                ListRegistrasi(
+                                  pertanyaan: "Nomor Registrasi Ibu",
+                                  jawaban:
+                                      "${data.docs[index]["nomor registrasi ibu"]}",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Nomor Urut di Kohort Ibu",
+                                  jawaban:
+                                      "${data.docs[index]["nomor urut di kahort ibu"]}",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Tanggal menerima buku KIA",
+                                  jawaban:
+                                      "${data.docs[index]["tanggal menerima buku kia"]}",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan:
+                                      "Nama & No. Telp. Tenaga Kesehatan",
+                                  jawaban:
+                                      "${data.docs[index]["nama petugas"]} ${data.docs[index]["nomor petugas"]}",
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            width: width * 0.9,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(27),
+                              color: orangeMuda,
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                const SubJudulBesar(
+                                    judul: "IDENTITAS KELUARGA"),
+                                ListRegistrasi(
+                                  pertanyaan: "Nama Ibu",
+                                  jawaban: "jawaban",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Tempat/Tgl. Lahir",
+                                  jawaban: (data.docs[index]["TTL ibu"] != null
+                                      ? "${data.docs[index]["TTL ibu"]}"
+                                      : "tidak ada data"),
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Kehamilan ke",
+                                  jawaban: data.docs[index]["kehamilan ke-"] !=
+                                          null
+                                      ? "${data.docs[index]["kehamilan ke-"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Agama",
+                                  jawaban: data.docs[index]["agama ibu"] != null
+                                      ? "${data.docs[index]["agama ibu"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Pendidikan",
+                                  jawaban: data.docs[index]["pendidikan ibu"] !=
+                                          null
+                                      ? "${data.docs[index]["pendidikan ibu"]}"
+                                      : "Tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Golongan Darah",
+                                  jawaban: data.docs[index]
+                                              ["golongan darah ibu"] !=
+                                          null
+                                      ? "${data.docs[index]["golongan darah ibu"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Pekerjaan",
+                                  jawaban: data.docs[index]["pekerjaan ibu"] !=
+                                          null
+                                      ? "${data.docs[index]["pekerjaan ibu"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "No. JKN",
+                                  jawaban: data.docs[index]["no JKN"] != null
+                                      ? "${data.docs[index]["no JKN"]}"
+                                      : "tidak ada data",
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            width: width * 0.9,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(27),
+                              color: orangeMuda,
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                ListRegistrasi(
+                                  pertanyaan: "Nama Suami",
+                                  jawaban:
+                                      data.docs[index]["nama suami"] != null
+                                          ? "${data.docs[index]["nama suami"]}"
+                                          : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Tempat/Tgl. Lahir",
+                                  jawaban: data.docs[index]["TTL ayah"] != null
+                                      ? "${data.docs[index]["TTL ayah"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Agama",
+                                  jawaban:
+                                      data.docs[index]["agama suami"] != null
+                                          ? "${data.docs[index]["agama suami"]}"
+                                          : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Pendidikan",
+                                  jawaban: data.docs[index]
+                                              ["pendidikan suami"] !=
+                                          null
+                                      ? "${data.docs[index]["pendidikan suami"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Golongan Darah",
+                                  jawaban: data.docs[index]
+                                              ["golongan darah suami"] !=
+                                          null
+                                      ? "${data.docs[index]["golongan darah suami"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Pekerjaan",
+                                  jawaban: data.docs[index]
+                                              ["pekerjaan suami"] !=
+                                          null
+                                      ? "${data.docs[index]["pekerjaan suami"]}"
+                                      : "tidak ada data",
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            width: width * 0.9,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(27),
+                              color: orangeMuda,
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                ListRegistrasi(
+                                  pertanyaan: "Alamat Rumah",
+                                  jawaban: data.docs[index]["alamat rumah"] !=
+                                          null
+                                      ? "${data.docs[index]["alamat rumah"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Kecamatan",
+                                  jawaban: data.docs[index]["kecamatan"] != null
+                                      ? "${data.docs[index]["kecamatan"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Kabupaten/Kota",
+                                  jawaban: data.docs[index]["kabupaten"] != null
+                                      ? "${data.docs[index]["kabupaten"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "No. Telp. yang bisa dihubungi",
+                                  jawaban: data.docs[index]
+                                              ["nomor yang bisa dihubungi"] !=
+                                          null
+                                      ? "${data.docs[index]["nomor yang bisa dihubungi"]}"
+                                      : "tidak ada data",
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            width: width * 0.9,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(27),
+                              color: orangeMuda,
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                ListRegistrasi(
+                                  pertanyaan: "Nama Anak",
+                                  jawaban: data.docs[index]["nama anak"] != null
+                                      ? "${data.docs[index]["nama anak"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Tempat/Tgl. Lahir",
+                                  jawaban: data.docs[index]["TTL anak"] != null
+                                      ? "${data.docs[index]["TTL anak"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "Anak ke",
+                                  jawaban: data.docs[index]["anak ke"] != null
+                                      ? "${data.docs[index]["anak ke"]}"
+                                      : "tidak ada data",
+                                ),
+                                ListRegistrasi(
+                                  pertanyaan: "No. Akte Kelahiran",
+                                  jawaban:
+                                      data.docs[index]["Nomor Akte"] != null
+                                          ? "${data.docs[index]["Nomor Akte"]}"
+                                          : "tidak da data",
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 100,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
-                centerTitle: false,
-              ),
-              body: ListView.builder(
-                itemCount: data.size,
-                itemBuilder: (BuildContext context, int index) {
-                  if (snapshot.hasError) {
-                    return const Scaffold(
-                      body: Center(
-                        child: Text('Something went wrong'),
-                      ),
-                    );
-                  }
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Scaffold(
-                      body: Center(
-                        child: Text('Loading....'),
-                      ),
-                    );
-                  }
-                  return Container(
-                    padding: const EdgeInsets.all(10),
-                    color: orangeTua,
-                    height: height,
-                    child: SingleChildScrollView(
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  ListRegistrasi(
-                                    pertanyaan: "Nomor Registrasi Ibu",
-                                    jawaban:
-                                        "${data.docs[index]["nomor registrasi ibu"]}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Nomor Urut di Kohort Ibu",
-                                    jawaban:
-                                        "${data.docs[index]["nomor urut di kahort ibu"]}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Tanggal menerima buku KIA",
-                                    jawaban:
-                                        "${data.docs[index]["tanggal menerima buku kia"]}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan:
-                                        "Nama & No. Telp. Tenaga Kesehatan",
-                                    jawaban:
-                                        "${data.docs[index]["nama petugas"]} ${data.docs[index]["nomor petugas"]}",
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  const SubJudulBesar(
-                                      judul: "IDENTITAS KELUARGA"),
-                                  ListRegistrasi(
-                                    pertanyaan: "Nama Ibu",
-                                    jawaban: "jawaban",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Tempat/Tgl. Lahir",
-                                    jawaban:
-                                        (data.docs[index]["TTL ibu"] != null
-                                            ? "${data.docs[index]["TTL ibu"]}"
-                                            : "tidak ada data"),
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Kehamilan ke",
-                                    jawaban: data.docs[index]
-                                                ["kehamilan ke-"] !=
-                                            null
-                                        ? "${data.docs[index]["kehamilan ke-"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Agama",
-                                    jawaban:
-                                        data.docs[index]["agama ibu"] != null
-                                            ? "${data.docs[index]["agama ibu"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Pendidikan",
-                                    jawaban: data.docs[index]
-                                                ["pendidikan ibu"] !=
-                                            null
-                                        ? "${data.docs[index]["pendidikan ibu"]}"
-                                        : "Tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Golongan Darah",
-                                    jawaban: data.docs[index]
-                                                ["golongan darah ibu"] !=
-                                            null
-                                        ? "${data.docs[index]["golongan darah ibu"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Pekerjaan",
-                                    jawaban: data.docs[index]
-                                                ["pekerjaan ibu"] !=
-                                            null
-                                        ? "${data.docs[index]["pekerjaan ibu"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "No. JKN",
-                                    jawaban: data.docs[index]["no JKN"] != null
-                                        ? "${data.docs[index]["no JKN"]}"
-                                        : "tidak ada data",
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  ListRegistrasi(
-                                    pertanyaan: "Nama Suami",
-                                    jawaban: data.docs[index]["nama suami"] !=
-                                            null
-                                        ? "${data.docs[index]["nama suami"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Tempat/Tgl. Lahir",
-                                    jawaban:
-                                        data.docs[index]["TTL ayah"] != null
-                                            ? "${data.docs[index]["TTL ayah"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Agama",
-                                    jawaban: data.docs[index]["agama suami"] !=
-                                            null
-                                        ? "${data.docs[index]["agama suami"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Pendidikan",
-                                    jawaban: data.docs[index]
-                                                ["pendidikan suami"] !=
-                                            null
-                                        ? "${data.docs[index]["pendidikan suami"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Golongan Darah",
-                                    jawaban: data.docs[index]
-                                                ["golongan darah suami"] !=
-                                            null
-                                        ? "${data.docs[index]["golongan darah suami"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Pekerjaan",
-                                    jawaban: data.docs[index]
-                                                ["pekerjaan suami"] !=
-                                            null
-                                        ? "${data.docs[index]["pekerjaan suami"]}"
-                                        : "tidak ada data",
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  ListRegistrasi(
-                                    pertanyaan: "Alamat Rumah",
-                                    jawaban: data.docs[index]["alamat rumah"] !=
-                                            null
-                                        ? "${data.docs[index]["alamat rumah"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Kecamatan",
-                                    jawaban:
-                                        data.docs[index]["kecamatan"] != null
-                                            ? "${data.docs[index]["kecamatan"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Kabupaten/Kota",
-                                    jawaban:
-                                        data.docs[index]["kabupaten"] != null
-                                            ? "${data.docs[index]["kabupaten"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "No. Telp. yang bisa dihubungi",
-                                    jawaban: data.docs[index]
-                                                ["nomor yang bisa dihubungi"] !=
-                                            null
-                                        ? "${data.docs[index]["nomor yang bisa dihubungi"]}"
-                                        : "tidak ada data",
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  ListRegistrasi(
-                                    pertanyaan: "Nama Anak",
-                                    jawaban:
-                                        data.docs[index]["nama anak"] != null
-                                            ? "${data.docs[index]["nama anak"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Tempat/Tgl. Lahir",
-                                    jawaban:
-                                        data.docs[index]["TTL anak"] != null
-                                            ? "${data.docs[index]["TTL anak"]}"
-                                            : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Anak ke",
-                                    jawaban: data.docs[index]["anak ke"] != null
-                                        ? "${data.docs[index]["anak ke"]}"
-                                        : "tidak ada data",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "No. Akte Kelahiran",
-                                    jawaban: data.docs[index]["Nomor Akte"] !=
-                                            null
-                                        ? "${data.docs[index]["Nomor Akte"]}"
-                                        : "tidak da data",
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 100,
-                            ),
-                          ],
-                        ),
-                      ),
+                );
+              },
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned(
+                  bottom: 20,
+                  right: 30,
+                  child: FloatingActionButton(
+                    backgroundColor: putih,
+                    heroTag: 'next',
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TambahRegistrasi()));
+                    },
+                    child: const Icon(
+                      Icons.add,
+                      size: 40,
+                      color: orangeTua,
                     ),
-                  );
-                },
-              ),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerFloat,
-              floatingActionButton: (!snapshot.hasData)
-                  ? Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Positioned(
-                          bottom: 20,
-                          right: 30,
-                          child: FloatingActionButton(
-                            backgroundColor: putih,
-                            heroTag: 'next',
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => TambahRegistrasi()));
-                            },
-                            child: const Icon(
-                              Icons.add,
-                              size: 40,
-                              color: orangeTua,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        )
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                )
 
-                        // Add more floating buttons if you want
-                        // There is no limit
-                      ],
-                    )
-                  : Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Positioned(
-                          bottom: 20,
-                          right: 30,
-                          child: FloatingActionButton(
-                            backgroundColor: putih,
-                            heroTag: 'next',
-                            onPressed: () {
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //     builder: (context) => TambahRegistrasi()));
-                            },
-                            child: const Icon(
-                              Icons.edit_note_sharp,
-                              size: 40,
-                              color: orangeTua,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        )
-
-                        // Add more floating buttons if you want
-                        // There is no limit
-                      ],
-                    ));
-        });
+                // Add more floating buttons if you want
+                // There is no limit
+              ],
+            ));
+      },
+    );
   }
 }
