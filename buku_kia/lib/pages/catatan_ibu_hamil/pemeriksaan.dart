@@ -5,6 +5,7 @@ import 'package:buku_kia/widgets/list_register.dart';
 import 'package:buku_kia/widgets/subjudulBesar.dart';
 import 'package:buku_kia/widgets/text_table.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Pemeriksaan extends StatefulWidget {
   Pemeriksaan({Key? key}) : super(key: key);
@@ -14,25 +15,33 @@ class Pemeriksaan extends StatefulWidget {
 }
 
 class _PemeriksaanState extends State<Pemeriksaan> {
+  TextEditingController hamilKeController = TextEditingController(text: "");
+  TextEditingController jumlahAnakHidupController =
+      TextEditingController(text: "");
+  TextEditingController jumlahAnakLahirKurangBulanController =
+      TextEditingController(text: "");
+  TextEditingController jarakKehamilanController =
+      TextEditingController(text: "");
+  TextEditingController statusImunisasiController =
+      TextEditingController(text: "");
+  TextEditingController penolongPersalinanController =
+      TextEditingController(text: "");
+  TextEditingController caraPersalinanController =
+      TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: orangeTua,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Catatan Kesehatan Ibu Hamil',
-                style: judulAppBAr,
-              ),
-            ),
+        title: Text(
+          'Catatan Kesehatan Ibu Hamil',
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
           ),
-        ],
-        centerTitle: false,
+        ),
+        centerTitle: true,
       ),
       backgroundColor: putih,
       body: SingleChildScrollView(
@@ -40,7 +49,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            JudulBesar(judul: "Diisi oleh petugas kesehatan"),
+            const JudulBesar(judul: "Diisi oleh petugas kesehatan"),
             Center(
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -84,7 +93,31 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: orangeTua,
+                  ),
+                  onPressed: () async {
+                    await _showDialogDiri();
+                  },
+                  child: Text(
+                    'Tambah Data',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
               height: 10,
             ),
             Table(
@@ -135,6 +168,27 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                 ),
               ],
             ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: orangeTua,
+                  ),
+                  onPressed: () async {
+                    await _showDialogTable();
+                  },
+                  child: Text(
+                    'Tambah Data',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Center(
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -151,6 +205,89 @@ class _PemeriksaanState extends State<Pemeriksaan> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _showDialogDiri() {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: Text(
+              'Masukkan Data Diri',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Row(
+                  children: [
+                    const Text('Hamil Ke-'),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('SIMPAN'),
+              onPressed: () {},
+            ),
+            TextButton(
+              child: const Text('BATAL'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showDialogTable() {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: Text(
+              'Masukkan Data Diri',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [Text('a')],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('SIMPAN'),
+              onPressed: () {},
+            ),
+            TextButton(
+              child: const Text('BATAL'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

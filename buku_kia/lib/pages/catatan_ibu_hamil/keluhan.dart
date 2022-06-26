@@ -5,6 +5,7 @@ import 'package:buku_kia/widgets/list_register.dart';
 import 'package:buku_kia/widgets/subjudulBesar.dart';
 import 'package:buku_kia/widgets/text_table.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Keluhan extends StatefulWidget {
   Keluhan({Key? key}) : super(key: key);
@@ -20,17 +21,18 @@ class _KeluhanState extends State<Keluhan> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: orangeTua,
+        title: Text(
+          'Catatan Kesehatan Ibu Hamil',
+          style: judulAppBAr,
+        ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Catatan Kesehatan Ibu Hamil',
-                style: judulAppBAr,
-              ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.add,
+              color: Colors.white,
             ),
-          ),
+          )
         ],
         centerTitle: false,
       ),
@@ -40,7 +42,7 @@ class _KeluhanState extends State<Keluhan> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            JudulBesar(judul: "Diisi oleh petugas kesehatan"),
+            const JudulBesar(judul: "Diisi oleh petugas kesehatan"),
             Center(
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -84,8 +86,18 @@ class _KeluhanState extends State<Keluhan> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                'Tambah Data',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
             Table(
               border: TableBorder.all(

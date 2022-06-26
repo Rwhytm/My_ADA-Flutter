@@ -127,5 +127,62 @@ class AuthServices {
     return snapshot.docs.map((doc) => doc.data()).toList();
   }
 
+  //tambah data diri keluhan
+  static Future<User?> keluhanDataDiri(
+    String hamilke,
+    String jumlahPersalinan,
+    String jumlahKeguguran,
+    String jumlahAnakHidup,
+    String jumlahAnakMati,
+    String jumlahAnakKurangBulan,
+    String jarakKehamilan,
+    String statusImunisasi,
+    String penolongPersalinan,
+    String caraPersalinan,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_diri_keluhan')
+        .add({
+      'hamil ke': hamilke,
+      'jumlah persalinan': jumlahPersalinan,
+      'jumlah keguguran': jumlahKeguguran,
+      'jumlah anak hidup': jumlahAnakHidup,
+      'jumlah anak kurang bulan': jumlahAnakKurangBulan,
+      'jarak kehamilan': jarakKehamilan,
+      'status imunisasi': statusImunisasi,
+      'pertolongan persalinan': penolongPersalinan,
+      'cara persalinan': caraPersalinan,
+    });
+  }
+
+  //tambah data diri pemeriksaan
+  static Future<User?> pemeriksaanDataDiri(
+    String hariPertamaHaid,
+    String htp,
+    String lingkarLenganAtas,
+    String tinggiBadan,
+    String golonganDarah,
+    String penggunaanKontrasepsi,
+    String riwayatPenyakitIbu,
+    String riwayatAlergi,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_diri_perawatan')
+        .add({
+      'Hari Pertama HAIN': hariPertamaHaid,
+      'hari taksiran': htp,
+      'lingkar lengan atas': lingkarLenganAtas,
+      'tinggi badan': tinggiBadan,
+      'golongan darah': golonganDarah,
+      'penggunaan kontrasepsi': penggunaanKontrasepsi,
+      'riwayat penyakit': riwayatPenyakitIbu,
+      'riwayat Alergi': riwayatAlergi,
+    });
+  }
+
   static Stream<User?> get firebaseUserStream => _auth.authStateChanges();
 }
