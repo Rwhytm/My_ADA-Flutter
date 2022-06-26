@@ -18,3 +18,4 @@ const Color ibuHamilColor = Color(0xffFE5CC7);
 const Color ibuNifasColor = Color(0xffFE5CC7);
 const Color keluargaBerencanaColor = Color(0xffFE5CC7);
 const Color catatanColor = Color(0xffFE5CC7);
+const Color pinkpudar = Color(0xffFF93DF);

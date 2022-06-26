@@ -1,5 +1,8 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
+import 'package:buku_kia/pages/daftar_isi.dart';
+import 'package:buku_kia/pages/ibu_hamil/ibuhamil2.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:buku_kia/widgets/judul_besar.dart';
@@ -50,6 +53,14 @@ class _PemeriksaanState extends State<Pemeriksaan> {
         final data = snapshot.requireData;
         return Scaffold(
           appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const DaftarIsi()),
+                );
+              },
+            ),
             actions: [
               data.size == 0
                   ? IconButton(
@@ -69,7 +80,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
             ],
             backgroundColor: orangeTua,
             title: Text(
-              'Catatan Kesehatan Ibu Hamil',
+              'Data Diri Pemeriksaan Ibu ',
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -206,65 +217,38 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                         ],
                       ),
                     );
-              // : SingleChildScrollView(
-              //     child: Column(
-              //       mainAxisAlignment: MainAxisAlignment.start,
-              //       crossAxisAlignment: CrossAxisAlignment.start,
-              //       children: [
-              //         const JudulBesar(
-              //             judul: "Diisi oleh petugas kesehatan"),
-              //         Center(
-              //           child: Container(
-              //             padding: const EdgeInsets.all(10),
-              //             width: width * 0.9,
-              //             decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(27),
-              //               color: orangeMuda,
-              //             ),
-              //             child: Column(
-              //               children: const <Widget>[
-              //                 ListRegistrasi(
-              //                   pertanyaan: "Hamil ke",
-              //                   jawaban:
-              //                       "tidak ada data    Jumlah persalinan tidak ada data   Jumlah keguguran tidak ada data",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan: "Jumlah anak hidup",
-              //                   jawaban: "tidak ada data ",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan:
-              //                       "Jumlah anak lahir kurang bulan",
-              //                   jawaban: "tidak ada data anak ",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan:
-              //                       "Jarak kehamilan ini dengan persalinan terakhir",
-              //                   jawaban: "tidak ada data",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan: "status imunisasi TT terakhir",
-              //                   jawaban: "tidak ada data",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan: "Penolong persalinan terakhir",
-              //                   jawaban: "tidak ada data",
-              //                 ),
-              //                 ListRegistrasi(
-              //                   pertanyaan: "Cara Persalinan terakhir",
-              //                   jawaban: "tidak ada data",
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         ),
-              //         const SizedBox(
-              //           height: 10,
-              //         ),
-              //       ],
-              //     ),
-              //   );
             },
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: Stack(
+            fit: StackFit.expand,
+            children: [
+              Positioned(
+                bottom: 20,
+                right: 30,
+                child: FloatingActionButton(
+                  backgroundColor: orangeTua,
+                  heroTag: 'next',
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => new TabelPemeriksaan(),
+                      ),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.arrow_right,
+                    size: 40,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              // Add more floating buttons if you want
+              // There is no limit
+            ],
           ),
         );
       },

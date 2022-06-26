@@ -128,7 +128,7 @@ class AuthServices {
     return snapshot.docs.map((doc) => doc.data()).toList();
   }
 
-  //tambah data diri keluhan
+  //tambah data diri pemeriksaan
   static Future<User?> pemeriksaanDataDiri(
     String hamilke,
     String jumlahPersalinan,
@@ -155,6 +155,29 @@ class AuthServices {
       'status imunisasi': statusImunisasi,
       'pertolongan persalinan': penolongPersalinan,
       'cara persalinan': caraPersalinan,
+    });
+  }
+
+  //tambah data  pemeriksaan
+  static Future<User?> pemeriksaanTabel(
+    String kakiBengkak,
+    String hasilPemeriksaan,
+    String tindakan,
+    String nasihat,
+    String keterangan,
+    String kapanHarusKembali,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_pemeriksaan')
+        .add({
+      'kaki bengkak': kakiBengkak,
+      'hasil laboratorium': hasilPemeriksaan,
+      'tindakan': tindakan,
+      'nasihat': nasihat,
+      'keterangan': keterangan,
+      'kapan harus kembali': kapanHarusKembali,
     });
   }
 
