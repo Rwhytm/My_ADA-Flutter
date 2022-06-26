@@ -19,7 +19,8 @@ class AuthServices {
       User? firebaseUser = result.user;
       await FirebaseFirestore.instance
           .collection('pasiens')
-          .add({'nama': nama.toUpperCase(), "nik": nik})
+          .doc(user.uid)
+          .set({'nama': nama.toUpperCase(), "nik": nik})
           .then(
             (value) => print('Pasien berhasil ditambah'),
           )

@@ -21,6 +21,7 @@ class Pemeriksaan extends StatefulWidget {
 class _PemeriksaanState extends State<Pemeriksaan> {
   static FirebaseAuth _auth = FirebaseAuth.instance;
   static User user = _auth.currentUser!;
+
   final Stream<QuerySnapshot> data_user = FirebaseFirestore.instance
       .collection('pasiens')
       .doc(user.uid)
@@ -50,7 +51,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
         return Scaffold(
           appBar: AppBar(
             actions: [
-              data_user == null
+              data.size == 0
                   ? IconButton(
                       onPressed: () {
                         Navigator.of(context).push(
@@ -78,9 +79,9 @@ class _PemeriksaanState extends State<Pemeriksaan> {
           ),
           backgroundColor: putih,
           body: ListView.builder(
-            itemCount: data.size,
+            itemCount: (data.size == 0 ? 1 : data.size),
             itemBuilder: (BuildContext context, int index) {
-              return (data.size != 0)
+              return data.size != 0
                   ? SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -163,35 +164,37 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                               child: Column(
                                 children: const <Widget>[
                                   ListRegistrasi(
-                                    pertanyaan: "Hamil ke",
+                                    pertanyaan: "Hamil ke : ",
                                     jawaban:
-                                        "tidak ada data    Jumlah persalinan tidak ada data   Jumlah keguguran tidak ada data",
+                                        "-    Jumlah persalinan : -   Jumlah keguguran : -",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Jumlah anak hidup",
-                                    jawaban: "tidak ada data ",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan:
-                                        "Jumlah anak lahir kurang bulan",
-                                    jawaban: "tidak ada data anak ",
+                                    pertanyaan: "Jumlah anak hidup :",
+                                    jawaban: "- ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir",
-                                    jawaban: "tidak ada data",
+                                        "Jumlah anak lahir kurang bulan : ",
+                                    jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "status imunisasi TT terakhir",
-                                    jawaban: "tidak ada data",
+                                    pertanyaan:
+                                        "Jarak kehamilan ini dengan persalinan terakhir : ",
+                                    jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Penolong persalinan terakhir",
-                                    jawaban: "tidak ada data",
+                                    pertanyaan:
+                                        "status imunisasi TT terakhir : ",
+                                    jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Cara Persalinan terakhir",
-                                    jawaban: "tidak ada data",
+                                    pertanyaan:
+                                        "Penolong persalinan terakhir : ",
+                                    jawaban: "-",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: "Cara Persalinan terakhir : ",
+                                    jawaban: "-",
                                   ),
                                 ],
                               ),
@@ -203,6 +206,64 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                         ],
                       ),
                     );
+              // : SingleChildScrollView(
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       crossAxisAlignment: CrossAxisAlignment.start,
+              //       children: [
+              //         const JudulBesar(
+              //             judul: "Diisi oleh petugas kesehatan"),
+              //         Center(
+              //           child: Container(
+              //             padding: const EdgeInsets.all(10),
+              //             width: width * 0.9,
+              //             decoration: BoxDecoration(
+              //               borderRadius: BorderRadius.circular(27),
+              //               color: orangeMuda,
+              //             ),
+              //             child: Column(
+              //               children: const <Widget>[
+              //                 ListRegistrasi(
+              //                   pertanyaan: "Hamil ke",
+              //                   jawaban:
+              //                       "tidak ada data    Jumlah persalinan tidak ada data   Jumlah keguguran tidak ada data",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan: "Jumlah anak hidup",
+              //                   jawaban: "tidak ada data ",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan:
+              //                       "Jumlah anak lahir kurang bulan",
+              //                   jawaban: "tidak ada data anak ",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan:
+              //                       "Jarak kehamilan ini dengan persalinan terakhir",
+              //                   jawaban: "tidak ada data",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan: "status imunisasi TT terakhir",
+              //                   jawaban: "tidak ada data",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan: "Penolong persalinan terakhir",
+              //                   jawaban: "tidak ada data",
+              //                 ),
+              //                 ListRegistrasi(
+              //                   pertanyaan: "Cara Persalinan terakhir",
+              //                   jawaban: "tidak ada data",
+              //                 ),
+              //               ],
+              //             ),
+              //           ),
+              //         ),
+              //         const SizedBox(
+              //           height: 10,
+              //         ),
+              //       ],
+              //     ),
+              //   );
             },
           ),
         );
