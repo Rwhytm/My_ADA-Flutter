@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
@@ -246,7 +247,7 @@ class DaftarIsi extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const IbuHamil1()),
+                              builder: (context) => Pemeriksaan()),
                         );
                       },
                       child: Container(

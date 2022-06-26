@@ -380,14 +380,14 @@ class _RegisterState extends State<TambahRegistrasi> {
                     );
                   }
 
-                  // await Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return Wrapper();
-                  //     },
-                  //   ),
-                  // );
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Wrapper();
+                      },
+                    ),
+                  );
                 },
               ),
             ],
