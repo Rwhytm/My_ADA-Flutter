@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/menu.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_keluhan.dart';
@@ -59,7 +60,7 @@ class _Keluhan extends State<Keluhan> {
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const DaftarIsi()),
+                  MaterialPageRoute(builder: (context) => const Menu()),
                 );
               },
             ),

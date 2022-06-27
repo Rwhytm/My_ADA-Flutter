@@ -1,5 +1,6 @@
 import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/menu.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/ibu_bersalin/ibubersalin1.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
@@ -247,7 +248,7 @@ class DaftarIsi extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Keluhan()),
+                          MaterialPageRoute(builder: (context) => const Menu()),
                         );
                       },
                       child: Container(
