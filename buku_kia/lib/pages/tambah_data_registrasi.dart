@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/registrasi.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
@@ -375,11 +376,11 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                         ),
                       );
 
-                  await Navigator.push(
+                  await Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Wrapper();
+                        return Registrasi();
                       },
                     ),
                   );

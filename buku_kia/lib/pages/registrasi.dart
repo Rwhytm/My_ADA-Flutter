@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas3.dart';
 import 'package:buku_kia/pages/tambah_data_registrasi.dart';
 import 'package:buku_kia/themes/color.dart';
@@ -50,6 +51,18 @@ class _RegistrasiState extends State<Registrasi> {
         final data = snapshot.requireData;
         return Scaffold(
             appBar: AppBar(
+              leading: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const DaftarIsi(),
+                    ),
+                  );
+                },
+              ),
               backgroundColor: orangeTua,
               actions: [
                 Padding(
@@ -565,8 +578,11 @@ class _RegistrasiState extends State<Registrasi> {
                           backgroundColor: putih,
                           heroTag: 'next',
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => TambahRegistrasi()));
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const TambahRegistrasi(),
+                              ),
+                            );
                           },
                           child: const Icon(
                             Icons.add,
