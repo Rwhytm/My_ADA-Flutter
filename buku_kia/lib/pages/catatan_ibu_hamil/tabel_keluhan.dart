@@ -1,6 +1,7 @@
 import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_tabel_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_tabel_pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil3.dart';
@@ -25,7 +26,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
   final Stream<QuerySnapshot> data_user = FirebaseFirestore.instance
       .collection('pasiens')
       .doc(user.uid)
-      .collection('data_pemeriksaan')
+      .collection('data_keluhan')
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => TambahTablePemeriksaan(),
+                      builder: (context) => const TambahTableKeluhan(),
                     ),
                   );
                 },
@@ -262,8 +263,6 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                   ),
                 ),
               ),
-              // Add more floating buttons if you want
-              // There is no limit
             ],
           ),
         );

@@ -1,5 +1,6 @@
 import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_keluhan.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
@@ -15,13 +16,17 @@ class TambahTableKeluhan extends StatefulWidget {
 }
 
 class _TambahTableKeluhan extends State<TambahTableKeluhan> {
-  TextEditingController kakiBengkakController = TextEditingController(text: "");
-  TextEditingController hasilPemeriksaanController =
+  TextEditingController tanggalController = TextEditingController(text: "");
+  TextEditingController keluhanController = TextEditingController(text: "");
+  TextEditingController tekananDarahController =
       TextEditingController(text: "");
-  TextEditingController tindakanController = TextEditingController(text: "");
-  TextEditingController nasihatController = TextEditingController(text: "");
-  TextEditingController keteranganController = TextEditingController(text: "");
-  TextEditingController kapanKembaliController =
+  TextEditingController beratBadanController = TextEditingController(text: "");
+  TextEditingController umurKehamilanController =
+      TextEditingController(text: "");
+  TextEditingController tinggiFundusController =
+      TextEditingController(text: "");
+  TextEditingController letakJaninController = TextEditingController(text: "");
+  TextEditingController denyutJantungController =
       TextEditingController(text: "");
 
   @override
@@ -31,7 +36,7 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
       appBar: AppBar(
         backgroundColor: backgroundPink,
         title: Text(
-          'Data Pemeriksaan Ibu ',
+          'Data Pemeriksaan Keluhan Ibu ',
           style: GoogleFonts.poppins(
             fontSize: 14,
             fontWeight: FontWeight.w600,
@@ -48,7 +53,7 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
                 height: 20,
               ),
               Text(
-                "Data Pemeriksaan",
+                "Data Pemeriksaan Keluhan",
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
@@ -60,48 +65,64 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
               ),
               RoundedInputField(
                 keyboard: TextInputType.name,
-                controller: kakiBengkakController,
-                hintText: "+/-",
+                controller: tanggalController,
+                hintText: "Tanggal",
               ),
               const SizedBox(
                 height: 10,
               ),
               RoundedInputField(
                 keyboard: TextInputType.name,
-                controller: hasilPemeriksaanController,
-                hintText: "Hasil Pemeriksaan Laboratorium",
+                controller: keluhanController,
+                hintText: "Keluhan sekarang",
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              RoundedInputField(
+                keyboard: TextInputType.number,
+                controller: tekananDarahController,
+                hintText: "Tekanan Darah (mmHg)",
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              RoundedInputField(
+                keyboard: TextInputType.number,
+                controller: beratBadanController,
+                hintText: "Berat badan (Kg)",
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              RoundedInputField(
+                keyboard: TextInputType.number,
+                controller: umurKehamilanController,
+                hintText: "Umur kehamilan (minggu)",
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              RoundedInputField(
+                keyboard: TextInputType.number,
+                controller: tinggiFundusController,
+                hintText: "Tinggi fundus (cm)",
               ),
               const SizedBox(
                 height: 10,
               ),
               RoundedInputField(
                 keyboard: TextInputType.name,
-                controller: tindakanController,
-                hintText: "Tindakan (pemberian TT, Fe, Dll)",
+                controller: letakJaninController,
+                hintText: "Letak janin Kep/Su/Li",
               ),
               const SizedBox(
-                height: 10,
+                height: 25,
               ),
               RoundedInputField(
                 keyboard: TextInputType.name,
-                controller: nasihatController,
-                hintText: "Nasihat yang disampaikan",
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              RoundedInputField(
-                keyboard: TextInputType.name,
-                controller: keteranganController,
-                hintText: "Keterangan tempat & nama pemeriksa",
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              RoundedInputField(
-                keyboard: TextInputType.name,
-                controller: kapanKembaliController,
-                hintText: "kapan harus kembali",
+                controller: denyutJantungController,
+                hintText: "Denyut jantung  janin/menit",
               ),
               const SizedBox(
                 height: 25,
@@ -109,13 +130,15 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
               RoundedButton(
                 text: "Simpan",
                 press: () async {
-                  await AuthServices.pemeriksaanTabel(
-                          kakiBengkakController.text,
-                          hasilPemeriksaanController.text,
-                          tindakanController.text,
-                          nasihatController.text,
-                          keteranganController.text,
-                          kapanKembaliController.text)
+                  await AuthServices.KeluhanTabel(
+                          tanggalController.text,
+                          keluhanController.text,
+                          tekananDarahController.text,
+                          beratBadanController.text,
+                          umurKehamilanController.text,
+                          tinggiFundusController.text,
+                          letakJaninController.text,
+                          denyutJantungController.text)
                       .then(
                         (value) => ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(

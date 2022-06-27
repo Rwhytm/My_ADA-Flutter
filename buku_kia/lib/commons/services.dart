@@ -181,6 +181,33 @@ class AuthServices {
     });
   }
 
+//tambah data  pemeriksaan Keluhan
+  static Future<User?> KeluhanTabel(
+    String tanggal,
+    String keluhanSekarang,
+    String tekananDarah,
+    String beratBadan,
+    String umurKehamilan,
+    String tinggiFundus,
+    String letakJanin,
+    String denyutJantung,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_keluhan')
+        .add({
+      'tanggal': tanggal,
+      'keluhan sekarang': keluhanSekarang,
+      'tekanan darah': tekananDarah,
+      'berat badan': beratBadan,
+      'umur kehamilan': umurKehamilan,
+      'tinggi fundus': tinggiFundus,
+      'letak janin': letakJanin,
+      'denyut jantung': denyutJantung,
+    });
+  }
+
   //tambah data diri pemeriksaan
   static Future<User?> keluhanDataDiri(
     String hariPertamaHaid,
