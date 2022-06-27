@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_keluhan.dart';
 import 'package:buku_kia/pages/wrapper.dart';
@@ -158,7 +159,7 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Pemeriksaan();
+                        return TabelKeluhan();
                       },
                     ),
                   );

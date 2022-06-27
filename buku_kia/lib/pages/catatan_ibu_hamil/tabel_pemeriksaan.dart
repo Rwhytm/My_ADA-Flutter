@@ -196,9 +196,6 @@ class _TabelPemeriksaanState extends State<TabelPemeriksaan> {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 100,
-                        ),
                       ],
                     )
                   : Container(

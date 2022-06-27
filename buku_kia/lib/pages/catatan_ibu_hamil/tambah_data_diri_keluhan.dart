@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
@@ -150,7 +151,7 @@ class _TambahDataDiriKeluhan extends State<TambahDataDiriKeluhan> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const Wrapper();
+                          return Keluhan();
                         },
                       ),
                     );

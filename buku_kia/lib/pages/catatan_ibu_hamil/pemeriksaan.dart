@@ -233,7 +233,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => new TabelPemeriksaan(),
+                        builder: (context) => TabelPemeriksaan(),
                       ),
                     );
                   },

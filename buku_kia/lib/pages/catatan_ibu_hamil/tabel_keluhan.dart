@@ -103,7 +103,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Kaki \nBengkak',
+                                    'Tanggal',
                                     style: TextStyle(),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 3,
@@ -113,7 +113,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Hasil \npemeriksaan \nlaboratorium',
+                                    'Keluhan\nSekarang',
                                     style:
                                         TextStyle(fontStyle: FontStyle.italic),
                                     overflow: TextOverflow.ellipsis,
@@ -126,7 +126,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Tindakan\n(Pemberian TT,\nFe,terapi,rujukan\numpan bali)',
+                                    'Tekanan\ndarah\n(mmHg)',
                                     style:
                                         TextStyle(fontStyle: FontStyle.italic),
                                     overflow: TextOverflow.ellipsis,
@@ -137,7 +137,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Nasihat\nyang disampaikan',
+                                    'Berat\nBadan\n(Kg)',
                                     style:
                                         TextStyle(fontStyle: FontStyle.italic),
                                     overflow: TextOverflow.ellipsis,
@@ -148,7 +148,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Keterangan\n-Tempat Pelayanan\n-Nama Pemeriksa',
+                                    'Umur\nKehamilan\n(Minggu)',
                                     style:
                                         TextStyle(fontStyle: FontStyle.italic),
                                     overflow: TextOverflow.ellipsis,
@@ -159,7 +159,29 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataColumn(
                                 label: Flexible(
                                   child: Text(
-                                    'Kapan\nHarus Kembali',
+                                    'Tinggi\nFundus\n(cm)',
+                                    style:
+                                        TextStyle(fontStyle: FontStyle.italic),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                  ),
+                                ),
+                              ),
+                              DataColumn(
+                                label: Flexible(
+                                  child: Text(
+                                    'Letak\nJanin',
+                                    style:
+                                        TextStyle(fontStyle: FontStyle.italic),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                  ),
+                                ),
+                              ),
+                              DataColumn(
+                                label: Flexible(
+                                  child: Text(
+                                    'Denyut\nJantung Janin\n permenit',
                                     style:
                                         TextStyle(fontStyle: FontStyle.italic),
                                     overflow: TextOverflow.ellipsis,
@@ -172,34 +194,40 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                               DataRow(
                                 cells: <DataCell>[
                                   DataCell(Text(
-                                    '${data.docs[index]['kaki bengkak']}',
+                                    '${data.docs[index]['tanggal']}',
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 3,
                                   )),
                                   DataCell(
                                     Text(
-                                        '${data.docs[index]['hasil laboratorium']}'),
-                                  ),
-                                  DataCell(
-                                    Text('${data.docs[index]['tindakan']}'),
-                                  ),
-                                  DataCell(
-                                    Text('${data.docs[index]['nasihat']}'),
-                                  ),
-                                  DataCell(
-                                    Text('${data.docs[index]['keterangan']}'),
+                                        '${data.docs[index]['keluhan sekarang']}'),
                                   ),
                                   DataCell(
                                     Text(
-                                        '${data.docs[index]['kapan harus kembali']}'),
+                                        '${data.docs[index]['tekanan darah']}'),
+                                  ),
+                                  DataCell(
+                                    Text('${data.docs[index]['berat badan']}'),
+                                  ),
+                                  DataCell(
+                                    Text(
+                                        '${data.docs[index]['umur kehamilan']}'),
+                                  ),
+                                  DataCell(
+                                    Text(
+                                        '${data.docs[index]['tinggi fundus']}'),
+                                  ),
+                                  DataCell(
+                                    Text('${data.docs[index]['letak janin']}'),
+                                  ),
+                                  DataCell(
+                                    Text(
+                                        '${data.docs[index]['denyut jantung']}'),
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                        ),
-                        const SizedBox(
-                          height: 100,
                         ),
                       ],
                     )

@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
@@ -173,7 +174,7 @@ class _TambahDataDiriPemeriksaanState extends State<TambahDataDiriPemeriksaan> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const Wrapper();
+                        return Pemeriksaan();
                       },
                     ),
                   );
