@@ -212,8 +212,8 @@ class _TabelPemeriksaanState extends State<TabelPemeriksaan> {
                     );
             },
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
+          // floatingActionButtonLocation:
+          //     FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Stack(
             fit: StackFit.expand,
             children: [

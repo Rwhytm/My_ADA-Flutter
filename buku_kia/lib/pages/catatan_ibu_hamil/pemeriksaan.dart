@@ -219,8 +219,8 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                     );
             },
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
+          // floatingActionButtonLocation:
+          //     FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Stack(
             fit: StackFit.expand,
             children: [
