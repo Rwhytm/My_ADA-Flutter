@@ -1,5 +1,7 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil2.dart';
@@ -28,7 +30,7 @@ class _Keluhan extends State<Keluhan> {
   final Stream<QuerySnapshot> data_user = FirebaseFirestore.instance
       .collection('pasiens')
       .doc(user.uid)
-      .collection('data_diri_pemeriksaan')
+      .collection('data_diri_keluhan')
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class _Keluhan extends State<Keluhan> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => TambahDataDiriPemeriksaan(),
+                            builder: (context) => TambahDataDiriKeluhan(),
                           ),
                         );
                       },
@@ -80,7 +82,7 @@ class _Keluhan extends State<Keluhan> {
             ],
             backgroundColor: orangeTua,
             title: Text(
-              'Data Diri Pemeriksaan Ibu ',
+              'Data Diri Keluhan Ibu ',
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -111,41 +113,43 @@ class _Keluhan extends State<Keluhan> {
                               child: Column(
                                 children: <Widget>[
                                   ListRegistrasi(
-                                    pertanyaan: "Hamil ke",
+                                    pertanyaan:
+                                        "Hari pertama Haid Terakhir (HPHT), tanggal : ",
                                     jawaban:
-                                        "${data.docs[index]['hamil ke']}    Jumlah persalinan ${data.docs[index]['jumlah persalinan']}   Jumlah keguguran ${data.docs[index]['jumlah keguguran']}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Jumlah anak hidup",
-                                    jawaban:
-                                        "${data.docs[index]['jumlah anak hidup']} ",
+                                        "${data.docs[index]['Hari Pertama HAID']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jumlah anak lahir kurang bulan",
+                                        "Hari Taksiran Persalinan (HTP), tanggal :",
                                     jawaban:
-                                        "${data.docs[index]['jumlah anak kurang bulan']} anak ",
+                                        "${data.docs[index]['hari taksiran']} ",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: "Lingkar lengan atas",
+                                    jawaban:
+                                        "${data.docs[index]['lingkar lengan atas']} cm     Tinggi badan : ${data.docs[index]['tinggi badan']} cm",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: "Golongan darah : ",
+                                    jawaban:
+                                        "${data.docs[index]['golongan darah']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir",
+                                        "Penggunaan kontrasepsi sebelum kehamilan ini",
                                     jawaban:
-                                        "${data.docs[index]['jarak kehamilan']}",
+                                        "${data.docs[index]['penggunaan kontrasepsi']}",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "status imunisasi TT terakhir",
+                                    pertanyaan:
+                                        "Riwayat penyakit yang diderita ibu",
                                     jawaban:
-                                        "${data.docs[index]['status imunisasi']}",
+                                        "${data.docs[index]['riwayat penyakit']}",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Penolong persalinan terakhir",
+                                    pertanyaan: "Riwayat alergi",
                                     jawaban:
-                                        "${data.docs[index]['pertolongan persalinan']}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Cara Persalinan terakhir",
-                                    jawaban:
-                                        "${data.docs[index]['cara persalinan']}",
+                                        "${data.docs[index]['riwayat Alergi']}",
                                   ),
                                 ],
                               ),
@@ -175,37 +179,36 @@ class _Keluhan extends State<Keluhan> {
                               child: Column(
                                 children: const <Widget>[
                                   ListRegistrasi(
-                                    pertanyaan: "Hamil ke : ",
-                                    jawaban:
-                                        "-    Jumlah persalinan : -   Jumlah keguguran : -",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Jumlah anak hidup :",
-                                    jawaban: "- ",
+                                    pertanyaan:
+                                        "Hari pertama Haid Terakhir (HPHT), tanggal : ",
+                                    jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jumlah anak lahir kurang bulan : ",
+                                        "Hari Taksiran Persalinan (HTP), tanggal :",
+                                    jawaban: " - ",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: "Lingkar lengan atas : ",
                                     jawaban: "-",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: "Golongan darah : ",
+                                    jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir : ",
-                                    jawaban: "-",
+                                        "Penggunaan kontrasepsi sebelum kehamilan ini : ",
+                                    jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "status imunisasi TT terakhir : ",
-                                    jawaban: "-",
+                                        "Riwayat penyakit yang diderita ibu : ",
+                                    jawaban: " - ",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan:
-                                        "Penolong persalinan terakhir : ",
-                                    jawaban: "-",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Cara Persalinan terakhir : ",
-                                    jawaban: "-",
+                                    pertanyaan: "Riwayat alergi : ",
+                                    jawaban: " - ",
                                   ),
                                 ],
                               ),
@@ -233,7 +236,7 @@ class _Keluhan extends State<Keluhan> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => new TabelPemeriksaan(),
+                        builder: (context) => new TabelKeluhan(),
                       ),
                     );
                   },

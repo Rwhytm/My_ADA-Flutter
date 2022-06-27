@@ -197,7 +197,7 @@ class AuthServices {
         .doc(user.uid)
         .collection('data_diri_keluhan')
         .add({
-      'Hari Pertama HAIN': hariPertamaHaid,
+      'Hari Pertama HAID': hariPertamaHaid,
       'hari taksiran': htp,
       'lingkar lengan atas': lingkarLenganAtas,
       'tinggi badan': tinggiBadan,

@@ -14,24 +14,19 @@ class TambahDataDiriKeluhan extends StatefulWidget {
 }
 
 class _TambahDataDiriKeluhan extends State<TambahDataDiriKeluhan> {
-  TextEditingController hamilKeController = TextEditingController(text: "");
-  TextEditingController jumlahPersalinanController =
+  TextEditingController hariPertamaController = TextEditingController(text: "");
+  TextEditingController hariTaksiranController =
       TextEditingController(text: "");
-  TextEditingController jumlahKeguguranController =
+  TextEditingController lingkarLenganAtasController =
       TextEditingController(text: "");
-  TextEditingController jumlahAnakHidupController =
+  TextEditingController tinggiBadanController = TextEditingController(text: "");
+  TextEditingController golonganDarahController =
       TextEditingController(text: "");
-  TextEditingController jumlahAnakMatiController =
+  TextEditingController penggunaanKontrasepsiController =
       TextEditingController(text: "");
-  TextEditingController jumlahAnakLahirKurangController =
+  TextEditingController riwayatPenyakitController =
       TextEditingController(text: "");
-  TextEditingController jarakKehamilanController =
-      TextEditingController(text: "");
-  TextEditingController statusImunisasiController =
-      TextEditingController(text: "");
-  TextEditingController penolongPersalinanController =
-      TextEditingController(text: "");
-  TextEditingController caraPersalinanController =
+  TextEditingController riwayatAlergiController =
       TextEditingController(text: "");
 
   @override
@@ -56,81 +51,65 @@ class _TambahDataDiriKeluhan extends State<TambahDataDiriKeluhan> {
                   height: 10,
                 ),
                 RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: hamilKeController,
-                  hintText: "Hamil Ke-",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: jumlahPersalinanController,
-                  hintText: "Jumlah Persalinan",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: jumlahKeguguranController,
-                  hintText: "Jumlah Keguguran",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: jumlahAnakHidupController,
-                  hintText: "Jumlah Anak Hidup",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: jumlahAnakMatiController,
-                  hintText: "Jumlah Lahir Mati",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                RoundedInputField(
-                  keyboard: TextInputType.number,
-                  controller: jumlahAnakLahirKurangController,
-                  hintText: "Jumlah anak lahir kurang bulan",
+                  keyboard: TextInputType.name,
+                  controller: hariPertamaController,
+                  hintText: "Hari Pertama Haid terakhir (HPHT)",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 RoundedInputField(
                   keyboard: TextInputType.name,
-                  controller: jarakKehamilanController,
-                  hintText: "Jarak Kehamilan ini dengan persalinan terakhir",
+                  controller: hariTaksiranController,
+                  hintText: "Hari Taksiran Persalinan(HTP), tanggal",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                RoundedInputField(
+                  keyboard: TextInputType.number,
+                  controller: lingkarLenganAtasController,
+                  hintText: "Lingkar Lengan Atas",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                RoundedInputField(
+                  keyboard: TextInputType.number,
+                  controller: tinggiBadanController,
+                  hintText: "Tinggi Badan",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 RoundedInputField(
                   keyboard: TextInputType.name,
-                  controller: statusImunisasiController,
-                  hintText: "Status imunisasi TT terakhir",
+                  controller: golonganDarahController,
+                  hintText: "Golongan darah",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 RoundedInputField(
                   keyboard: TextInputType.name,
-                  controller: penolongPersalinanController,
-                  hintText: "Penolong persalinan terakhir",
+                  controller: penggunaanKontrasepsiController,
+                  hintText: "Penggunaan kontrasepsi sebelum kehamilan ini",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 RoundedInputField(
                   keyboard: TextInputType.name,
-                  controller: caraPersalinanController,
-                  hintText: "Cara persalinan terakhir",
+                  controller: riwayatPenyakitController,
+                  hintText: "Riwayat penyakit ibu",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                RoundedInputField(
+                  keyboard: TextInputType.name,
+                  controller: riwayatAlergiController,
+                  hintText: "Riwayat alergi",
                 ),
                 const SizedBox(
                   height: 10,
@@ -141,17 +120,15 @@ class _TambahDataDiriKeluhan extends State<TambahDataDiriKeluhan> {
                 RoundedButton(
                   text: "Simpan",
                   press: () async {
-                    await AuthServices.pemeriksaanDataDiri(
-                            hamilKeController.text,
-                            jumlahPersalinanController.text,
-                            jumlahKeguguranController.text,
-                            jumlahAnakHidupController.text,
-                            jumlahAnakMatiController.text,
-                            jumlahAnakLahirKurangController.text,
-                            jarakKehamilanController.text,
-                            statusImunisasiController.text,
-                            penolongPersalinanController.text,
-                            caraPersalinanController.text)
+                    await AuthServices.keluhanDataDiri(
+                            hariPertamaController.text,
+                            hariTaksiranController.text,
+                            lingkarLenganAtasController.text,
+                            tinggiBadanController.text,
+                            golonganDarahController.text,
+                            penggunaanKontrasepsiController.text,
+                            riwayatPenyakitController.text,
+                            riwayatAlergiController.text)
                         .then(
                           (value) => ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
@@ -167,6 +144,7 @@ class _TambahDataDiriKeluhan extends State<TambahDataDiriKeluhan> {
                             ),
                           ),
                         );
+                    ;
 
                     await Navigator.push(
                       context,
