@@ -25,14 +25,17 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backgroundPink,
+      backgroundColor: orangeTua,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              SvgPicture.asset(
-                "assets/images/signup.svg",
+              const SizedBox(
+                height: 50,
+              ),
+              Image.asset(
+                "assets/images/nurse2.png",
                 height: size.height * 0.35,
               ),
               const SizedBox(

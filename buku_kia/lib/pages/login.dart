@@ -24,21 +24,26 @@ class _RegisterState extends State<Login> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backgroundPink,
+      backgroundColor: orangeTua,
       body: SafeArea(
           child: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              SvgPicture.asset(
-                "assets/images/signup.svg",
+              // SvgPicture.asset(
+              //   "assets/images/nurse1.png",
+              //   height: size.height * 0.35,
+              // ),
+              const SizedBox(
+                height: 50,
+              ),
+              Image.asset(
+                "assets/images/nurse1.png",
                 height: size.height * 0.35,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+
               Text(
-                "Login",
+                "LOGIN",
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
