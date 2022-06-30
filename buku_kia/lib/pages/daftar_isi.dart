@@ -48,7 +48,7 @@ class DaftarIsi extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
         color: const Color(0xffFF93DF),
         child: SingleChildScrollView(
           child: Center(
@@ -59,6 +59,9 @@ class DaftarIsi extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Center(
                       child: GestureDetector(
                         onTap: () {
@@ -221,6 +224,9 @@ class DaftarIsi extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Center(
                       child: GestureDetector(
                         onTap: () {
