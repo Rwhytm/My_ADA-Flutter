@@ -7,6 +7,7 @@ import 'package:buku_kia/pages/ibu_hamil/ibuhamil1.dart';
 import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
 import 'package:buku_kia/pages/keluarga_berencana/keluargaberencana.dart';
 import 'package:buku_kia/pages/registrasi.dart';
+import 'package:buku_kia/pages/tim_peneliti.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +108,7 @@ class DaftarIsi extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Registrasi(),
+                              builder: (context) => const TimPeneliti(),
                             ),
                           );
                         },
