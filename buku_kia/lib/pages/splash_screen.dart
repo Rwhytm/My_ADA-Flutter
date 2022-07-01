@@ -39,9 +39,31 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: backgroundPink,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.asset(
+                    'assets/images/kemenkes.png',
+                    width: 130,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.asset(
+                    'assets/images/poltekes.png',
+                    width: 80,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             OutlinedText(
               text: Text(
                 "BUKU\nKESEHATAN IBU DAN ANAK",
@@ -63,13 +85,23 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 30,
             ),
             Image.asset(
-              'assets/images/sampul.png',
-              width: 300,
+              'assets/images/happyfamily.png',
+              width: 350,
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Aplikasi dari\nPoliteknik Kesehatan Bengkulu',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                  color: Colors.white),
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
     );
-    ;
   }
 }
