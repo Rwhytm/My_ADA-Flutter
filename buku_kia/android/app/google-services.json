@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "347090418660",
-    "project_id": "buku-kia-fcdb4",
-    "storage_bucket": "buku-kia-fcdb4.appspot.com"
+    "project_number": "185006998759",
+    "project_id": "buku-kia-f2d56",
+    "storage_bucket": "buku-kia-f2d56.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:347090418660:android:20ff3f8dd053c700d325f1",
+        "mobilesdk_app_id": "1:185006998759:android:d8991d4e5992ed5290ce42",
         "android_client_info": {
           "package_name": "com.techid.buku_kia"
         }
       },
       "oauth_client": [
         {
-          "client_id": "347090418660-nlq96jqe7cufnds9v318gk0ihq64hl2q.apps.googleusercontent.com",
+          "client_id": "185006998759-p4361jqs6oi3dvtkdls8qfb4q63elhg3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCXerHdXTSjCtt-3RrLpBIM4jfcpw1PsiU"
+          "current_key": "AIzaSyDMT5uYL85yQY0DrroLAun80NP1KOqAeNs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "347090418660-nlq96jqe7cufnds9v318gk0ihq64hl2q.apps.googleusercontent.com",
+              "client_id": "185006998759-p4361jqs6oi3dvtkdls8qfb4q63elhg3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
