@@ -8,6 +8,7 @@ import 'package:buku_kia/pages/ibu_nifas/ibunifas1.dart';
 import 'package:buku_kia/pages/keluarga_berencana/keluargaberencana.dart';
 import 'package:buku_kia/pages/registrasi.dart';
 import 'package:buku_kia/pages/tim_peneliti.dart';
+import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,12 @@ class DaftarIsi extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Logout Berhasil'),
+              ),
+            );
+
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Wrapper(),
               ),
             );
           },
