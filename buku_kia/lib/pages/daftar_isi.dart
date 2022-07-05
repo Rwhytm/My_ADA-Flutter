@@ -55,7 +55,7 @@ class DaftarIsi extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+        padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
         color: const Color(0xffFF93DF),
         child: SingleChildScrollView(
           child: Center(
@@ -226,6 +226,9 @@ class DaftarIsi extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      height: 25,
+                    ),
                   ],
                 ),
                 Column(
@@ -352,6 +355,9 @@ class DaftarIsi extends StatelessWidget {
                           ],
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 25,
                     ),
                   ],
                 ),
