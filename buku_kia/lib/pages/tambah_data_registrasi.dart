@@ -29,6 +29,8 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
       TextEditingController(text: "");
 
   //ibu registrasi
+
+  TextEditingController namaIbuController = TextEditingController(text: "");
   TextEditingController ttdIbuController = TextEditingController(text: "");
   TextEditingController kehamilankeController = TextEditingController(text: "");
   TextEditingController agamaIbuController = TextEditingController(text: "");
@@ -360,9 +362,10 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                               await AuthServices.registrasi(
                                 noRegistrasiController.text,
                                 nomorUrutKahortController.text,
-                                ttdIbuController.text,
+                                tanggalMenerimaController.text,
                                 namaTenagaKesehatanController.text,
                                 noHPTenagaKesehatanController.text,
+                                namaIbuController.text,
                                 ttdIbuController.text,
                                 kehamilankeController.text,
                                 agamaIbuController.text,
@@ -690,9 +693,10 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                               await AuthServices.editregistrasi(
                                 noRegistrasiController.text,
                                 nomorUrutKahortController.text,
-                                ttdIbuController.text,
+                                tanggalMenerimaController.text,
                                 namaTenagaKesehatanController.text,
                                 noHPTenagaKesehatanController.text,
+                                namaIbuController.text,
                                 ttdIbuController.text,
                                 kehamilankeController.text,
                                 agamaIbuController.text,
