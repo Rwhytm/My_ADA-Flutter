@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
+import 'package:buku_kia/widgets/list_deskripsi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: backgroundPink,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
@@ -53,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Image.asset(
                     'assets/images/poltekes.png',
                     width: 80,
@@ -61,12 +62,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
-            ),
             OutlinedText(
               text: Text(
-                "BUKU\nKESEHATAN IBU DAN ANAK",
+                "My ADA\n (Aplikasi Disital ANC)",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   fontSize: 20,
@@ -86,19 +84,55 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Image.asset(
               'assets/images/happyfamily.png',
-              width: 350,
+              width: 250,
             ),
             const SizedBox(
               height: 30,
             ),
             Text(
-              'Aplikasi dari\nPoliteknik Kesehatan Bengkulu',
+              'Jurusan Kebidanan\nPoliteknik Kesehatan Bengkulu',
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
                   color: Colors.white),
               textAlign: TextAlign.center,
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Yuniarti,. SST, M.Kes',
+                    style: GoogleFonts.poppins(
+                      fontSize: 13,
+                    ),
+                  ),
+                  Text(
+                    'DR. Susilo Damarini. SKM, MPH',
+                    style: GoogleFonts.poppins(
+                      fontSize: 13,
+                    ),
+                  ),
+                  Text(
+                    'Elvi Destariyani, SST, M.Kes',
+                    style: GoogleFonts.poppins(
+                      fontSize: 13,
+                    ),
+                  ),
+                  Text(
+                    'Erlin Puspita, SST, M.Keb',
+                    style: GoogleFonts.poppins(
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
