@@ -77,7 +77,19 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                         color: Colors.white,
                       ),
                     )
-                  : const Text('')
+                  : IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TambahDataDiriPemeriksaan(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    )
             ],
             backgroundColor: orangeTua,
             title: Text(
@@ -114,7 +126,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                                   ListRegistrasi(
                                     pertanyaan: "Hamil ke",
                                     jawaban:
-                                        "${data.docs[index]['hamil ke']}    Jumlah persalinan ${data.docs[index]['jumlah persalinan']}   Jumlah keguguran ${data.docs[index]['jumlah keguguran']}",
+                                        "${data.docs[index]['hamil ke']} Jumlah persalinan : ${data.docs[index]['jumlah persalinan']}   Jumlah keguguran : ${data.docs[index]['jumlah keguguran']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan: "Jumlah anak hidup",

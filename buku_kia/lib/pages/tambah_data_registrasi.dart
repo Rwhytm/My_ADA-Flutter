@@ -169,6 +169,14 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                           ),
                           RoundedInputField(
                             keyboard: TextInputType.name,
+                            controller: namaIbuController,
+                            hintText: "Nama Ibu",
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          RoundedInputField(
+                            keyboard: TextInputType.name,
                             controller: ttdIbuController,
                             hintText: "Tempat/tanggal lahir Ibu",
                           ),
@@ -497,6 +505,14 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                               fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
+                          ),
+                          RoundedInputField(
+                            keyboard: TextInputType.name,
+                            controller: namaIbuController,
+                            hintText: "Nama Ibu",
+                          ),
+                          const SizedBox(
+                            height: 10,
                           ),
                           RoundedInputField(
                             keyboard: TextInputType.name,

@@ -79,7 +79,19 @@ class _Keluhan extends State<Keluhan> {
                         color: Colors.white,
                       ),
                     )
-                  : const Text('')
+                  : IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TambahDataDiriKeluhan(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    )
             ],
             backgroundColor: orangeTua,
             title: Text(

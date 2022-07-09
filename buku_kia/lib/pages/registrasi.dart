@@ -154,10 +154,10 @@ class _RegistrasiState extends State<Registrasi> {
                                         judul: "IDENTITAS KELUARGA"),
                                     ListRegistrasi(
                                       pertanyaan: "Nama Ibu",
-                                      jawaban:
-                                          (data.docs[index]["TTL ibu"] != null
-                                              ? "${data.docs[index]["TTL ibu"]}"
-                                              : "tidak ada data"),
+                                      jawaban: (data.docs[index]["TTL ibu"] !=
+                                              null
+                                          ? "${data.docs[index]["nama ibu"]}"
+                                          : "tidak ada data"),
                                     ),
                                     ListRegistrasi(
                                       pertanyaan: "Tempat/Tgl. Lahir",

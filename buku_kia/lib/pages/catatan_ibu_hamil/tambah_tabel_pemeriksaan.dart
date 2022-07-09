@@ -62,7 +62,7 @@ class _TambahTablePemeriksaan extends State<TambahTablePemeriksaan> {
               RoundedInputField(
                 keyboard: TextInputType.name,
                 controller: kakiBengkakController,
-                hintText: "+/-",
+                hintText: "Kaki Bengkak (Ya/Tidak)",
               ),
               const SizedBox(
                 height: 10,

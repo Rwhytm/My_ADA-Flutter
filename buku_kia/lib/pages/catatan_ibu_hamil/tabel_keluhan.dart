@@ -88,8 +88,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Text(
-                            'Pemeriksaan Ke - ' +
-                                (data.size - (index)).toString(),
+                            'Pemeriksaan Ke - ' + (index + 1).toString(),
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,

@@ -28,13 +28,6 @@ TextStyle judulAppBAr = GoogleFonts.poppins(
   color: putih,
   fontSize: 20,
   fontWeight: FontWeight.w700,
-  shadows: <Shadow>[
-    const Shadow(
-      offset: Offset(3.0, 3.0),
-      blurRadius: 40.0,
-      color: Color.fromARGB(255, 0, 0, 0),
-    ),
-  ],
 );
 
 TextStyle daftarIsi = GoogleFonts.poppins(

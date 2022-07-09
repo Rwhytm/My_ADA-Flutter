@@ -214,7 +214,8 @@ class AuthServices {
         .collection('pasiens')
         .doc(user.uid)
         .collection('data_diri_pemeriksaan')
-        .add({
+        .doc(user.uid)
+        .set({
       'hamil ke': hamilke,
       'jumlah persalinan': jumlahPersalinan,
       'jumlah keguguran': jumlahKeguguran,
@@ -254,6 +255,7 @@ class AuthServices {
   static Future<User?> KeluhanTabel(
     String tanggal,
     String keluhanSekarang,
+    String id,
     String tekananDarah,
     String beratBadan,
     String umurKehamilan,
@@ -265,7 +267,8 @@ class AuthServices {
         .collection('pasiens')
         .doc(user.uid)
         .collection('data_keluhan')
-        .add({
+        .doc(user.uid + id)
+        .set({
       'tanggal': tanggal,
       'keluhan sekarang': keluhanSekarang,
       'tekanan darah': tekananDarah,
@@ -274,6 +277,7 @@ class AuthServices {
       'tinggi fundus': tinggiFundus,
       'letak janin': letakJanin,
       'denyut jantung': denyutJantung,
+      'id': user.uid + id,
     });
   }
 
@@ -292,7 +296,8 @@ class AuthServices {
         .collection('pasiens')
         .doc(user.uid)
         .collection('data_diri_keluhan')
-        .add({
+        .doc(user.uid)
+        .set({
       'Hari Pertama HAID': hariPertamaHaid,
       'hari taksiran': htp,
       'lingkar lengan atas': lingkarLenganAtas,
