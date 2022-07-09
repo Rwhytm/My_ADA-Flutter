@@ -18,6 +18,7 @@ class DaftarIsi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -55,6 +56,7 @@ class DaftarIsi extends StatelessWidget {
         ],
       ),
       body: Container(
+        height: size.height,
         padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
         color: const Color(0xffFF93DF),
         child: SingleChildScrollView(
@@ -112,49 +114,6 @@ class DaftarIsi extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TimPeneliti(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: 150,
-                          height: 150,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: catatanColor,
-                            borderRadius: BorderRadius.circular(27),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Image.asset(
-                                'assets/images/form.png',
-                                width: 100,
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Flexible(
-                                child: Text(
-                                  "Tim Peneliti",
-                                  textAlign: TextAlign.center,
-                                  style: daftarIsi,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -175,7 +134,7 @@ class DaftarIsi extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "Ibu Hamil",
+                              "Info Ibu Hamil",
                               style: daftarIsi,
                             ),
                             const SizedBox(
@@ -219,7 +178,7 @@ class DaftarIsi extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              "Ibu Nifas",
+                              "Info Ibu Nifas",
                               style: daftarIsi,
                             ),
                           ],
@@ -306,7 +265,7 @@ class DaftarIsi extends StatelessWidget {
                               height: 10,
                             ),
                             Text(
-                              "Ibu Bersalin",
+                              "Info Ibu Bersalin",
                               style: daftarIsi,
                             ),
                           ],
@@ -337,7 +296,7 @@ class DaftarIsi extends StatelessWidget {
                           children: <Widget>[
                             Flexible(
                               child: Text(
-                                "Keluarga Berencana",
+                                "Info\nKeluarga Berencana",
                                 style: daftarIsi,
                                 textAlign: TextAlign.center,
                               ),
