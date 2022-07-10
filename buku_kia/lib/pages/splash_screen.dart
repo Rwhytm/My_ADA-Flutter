@@ -107,24 +107,28 @@ class _SplashScreenState extends State<SplashScreen> {
                     'Yuniarti,. SST, M.Kes',
                     style: GoogleFonts.poppins(
                       fontSize: 13,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     'DR. Susilo Damarini. SKM, MPH',
                     style: GoogleFonts.poppins(
                       fontSize: 13,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     'Elvi Destariyani, SST, M.Kes',
                     style: GoogleFonts.poppins(
                       fontSize: 13,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
                     'Erlin Puspita, SST, M.Keb',
                     style: GoogleFonts.poppins(
                       fontSize: 13,
+                      color: Colors.white,
                     ),
                   ),
                 ],
