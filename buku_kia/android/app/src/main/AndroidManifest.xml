@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techid.buku_kia">
    <application
-        android:label="buku_kia"
+        android:label="My ADA"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
