@@ -19,32 +19,55 @@ class TambahDataDiriPemeriksaan extends StatefulWidget {
 
 class _TambahDataDiriPemeriksaanState extends State<TambahDataDiriPemeriksaan> {
   TextEditingController hamilKeController = TextEditingController(text: "");
-  TextEditingController jumlahPersalinanController =
-      TextEditingController(text: "");
-  TextEditingController jumlahKeguguranController =
-      TextEditingController(text: "");
-  TextEditingController jumlahAnakHidupController =
-      TextEditingController(text: "");
-  TextEditingController jumlahAnakMatiController =
-      TextEditingController(text: "");
+  TextEditingController jumlahPersalinanController = TextEditingController();
+  TextEditingController jumlahKeguguranController = TextEditingController();
+  TextEditingController jumlahAnakHidupController = TextEditingController();
+  TextEditingController jumlahAnakMatiController = TextEditingController();
   TextEditingController jumlahAnakLahirKurangController =
-      TextEditingController(text: "");
-  TextEditingController jarakKehamilanController =
-      TextEditingController(text: "");
-  TextEditingController statusImunisasiController =
-      TextEditingController(text: "");
-  TextEditingController penolongPersalinanController =
-      TextEditingController(text: "");
-  TextEditingController caraPersalinanController =
-      TextEditingController(text: "");
+      TextEditingController();
+  TextEditingController jarakKehamilanController = TextEditingController();
+  TextEditingController statusImunisasiController = TextEditingController();
+  TextEditingController penolongPersalinanController = TextEditingController();
+  TextEditingController caraPersalinanController = TextEditingController();
 
   static FirebaseAuth _auth = FirebaseAuth.instance;
   static User user = _auth.currentUser!;
+  void getData() async {
+    //use a Async-await function to get the data
+    final data = await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_diri_pemeriksaan')
+        .get(); //get the data
+    QuerySnapshot snapshot = data;
+    if (data.size != 0) {
+      hamilKeController.text = snapshot.docs[0]['hamil ke'];
+      jumlahPersalinanController.text = snapshot.docs[0]['jumlah persalinan'];
+      jumlahKeguguranController.text = snapshot.docs[0]['jumlah keguguran'];
+      jumlahAnakHidupController.text = snapshot.docs[0]['jumlah anak hidup'];
+      jumlahAnakLahirKurangController.text =
+          snapshot.docs[0]['jumlah anak kurang bulan'];
+      jarakKehamilanController.text = snapshot.docs[0]['jarak kehamilan'];
+      statusImunisasiController.text = snapshot.docs[0]['status imunisasi'];
+      penolongPersalinanController.text =
+          snapshot.docs[0]['pertolongan persalinan'];
+      caraPersalinanController.text = snapshot.docs[0]['cara persalinan'];
+    }
+  }
+
   final Stream<QuerySnapshot> data_user = FirebaseFirestore.instance
       .collection('pasiens')
       .doc(user.uid)
-      .collection('data_pasien')
+      .collection('data_diri_pemeriksaan')
       .snapshots();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
 //  Size size = MediaQuery.of(context).size;
@@ -66,311 +89,151 @@ class _TambahDataDiriPemeriksaanState extends State<TambahDataDiriPemeriksaan> {
             );
           }
           final data = snapshot.requireData;
-          return data.size == 0
-              ? Scaffold(
-                  backgroundColor: backgroundPink,
-                  body: SafeArea(
-                    child: SingleChildScrollView(
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "MASUKKAN DATA",
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: hamilKeController,
-                              hintText: "Hamil Ke-",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahPersalinanController,
-                              hintText: "Jumlah Persalinan",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahKeguguranController,
-                              hintText: "Jumlah Keguguran",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakHidupController,
-                              hintText: "Jumlah Anak Hidup",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakMatiController,
-                              hintText: "Jumlah Lahir Mati",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakLahirKurangController,
-                              hintText: "Jumlah anak lahir kurang bulan",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: jarakKehamilanController,
-                              hintText:
-                                  "Jarak Kehamilan ini dengan persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: statusImunisasiController,
-                              hintText: "Status imunisasi TT terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: penolongPersalinanController,
-                              hintText: "Penolong persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: caraPersalinanController,
-                              hintText: "Cara persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            RoundedButton(
-                              text: "Simpan",
-                              press: () async {
-                                await AuthServices.pemeriksaanDataDiri(
-                                        hamilKeController.text,
-                                        jumlahPersalinanController.text,
-                                        jumlahKeguguranController.text,
-                                        jumlahAnakHidupController.text,
-                                        jumlahAnakMatiController.text,
-                                        jumlahAnakLahirKurangController.text,
-                                        jarakKehamilanController.text,
-                                        statusImunisasiController.text,
-                                        penolongPersalinanController.text,
-                                        caraPersalinanController.text)
-                                    .then(
-                                      (value) => ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content:
-                                              Text('Berhasil Menambahkan data'),
-                                        ),
-                                      ),
-                                    )
-                                    .onError(
-                                      (error, stackTrace) =>
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                        const SnackBar(
-                                          content:
-                                              Text('Gagal Menambahkan data'),
-                                        ),
-                                      ),
-                                    );
-
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Pemeriksaan();
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
+          return Scaffold(
+            backgroundColor: backgroundPink,
+            body: SafeArea(
+              child: SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        data.size == 0 ? "MASUKKAN DATA" : "MENGUBAH DATA",
+                        style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
                         ),
                       ),
-                    ),
-                  ),
-                )
-              : Scaffold(
-                  backgroundColor: backgroundPink,
-                  body: SafeArea(
-                    child: SingleChildScrollView(
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Text(
-                              "UBAH DATA",
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: hamilKeController,
-                              hintText: "Hamil Ke-",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahPersalinanController,
-                              hintText: "Jumlah Persalinan",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahKeguguranController,
-                              hintText: "Jumlah Keguguran",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakHidupController,
-                              hintText: "Jumlah Anak Hidup",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakMatiController,
-                              hintText: "Jumlah Lahir Mati",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.number,
-                              controller: jumlahAnakLahirKurangController,
-                              hintText: "Jumlah anak lahir kurang bulan",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: jarakKehamilanController,
-                              hintText:
-                                  "Jarak Kehamilan ini dengan persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: statusImunisasiController,
-                              hintText: "Status imunisasi TT terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: penolongPersalinanController,
-                              hintText: "Penolong persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            RoundedInputField(
-                              keyboard: TextInputType.name,
-                              controller: caraPersalinanController,
-                              hintText: "Cara persalinan terakhir",
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            RoundedButton(
-                              text: "Simpan",
-                              press: () async {
-                                await AuthServices.pemeriksaanDataDiri(
-                                        hamilKeController.text,
-                                        jumlahPersalinanController.text,
-                                        jumlahKeguguranController.text,
-                                        jumlahAnakHidupController.text,
-                                        jumlahAnakMatiController.text,
-                                        jumlahAnakLahirKurangController.text,
-                                        jarakKehamilanController.text,
-                                        statusImunisasiController.text,
-                                        penolongPersalinanController.text,
-                                        caraPersalinanController.text)
-                                    .then(
-                                      (value) => ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content:
-                                              Text('Berhasil Menambahkan data'),
-                                        ),
-                                      ),
-                                    )
-                                    .onError(
-                                      (error, stackTrace) =>
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                        const SnackBar(
-                                          content:
-                                              Text('Gagal Menambahkan data'),
-                                        ),
-                                      ),
-                                    );
-
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Pemeriksaan();
-                                    },
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.number,
+                        controller: hamilKeController,
+                        hintText: "Hamil Ke-",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.number,
+                        controller: jumlahPersalinanController,
+                        hintText: "Jumlah Persalinan",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.number,
+                        controller: jumlahKeguguranController,
+                        hintText: "Jumlah Keguguran",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.number,
+                        controller: jumlahAnakHidupController,
+                        hintText: "Jumlah Anak Hidup",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.number,
+                        controller: jumlahAnakLahirKurangController,
+                        hintText: "Jumlah anak lahir kurang bulan",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: jarakKehamilanController,
+                        hintText:
+                            "Jarak Kehamilan ini dengan persalinan terakhir",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: statusImunisasiController,
+                        hintText: "Status imunisasi TT terakhir",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: penolongPersalinanController,
+                        hintText: "Penolong persalinan terakhir",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: caraPersalinanController,
+                        hintText: "Cara persalinan terakhir",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      RoundedButton(
+                        text: "Simpan",
+                        press: () async {
+                          await AuthServices.pemeriksaanDataDiri(
+                                  hamilKeController.text,
+                                  jumlahPersalinanController.text,
+                                  jumlahKeguguranController.text,
+                                  jumlahAnakHidupController.text,
+                                  jumlahAnakMatiController.text,
+                                  jumlahAnakLahirKurangController.text,
+                                  jarakKehamilanController.text,
+                                  statusImunisasiController.text,
+                                  penolongPersalinanController.text,
+                                  caraPersalinanController.text)
+                              .then(
+                                (value) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(data.size == 0
+                                        ? 'Berhasil Menambahkan data'
+                                        : 'Berhasil Mengubah data'),
                                   ),
-                                );
+                                ),
+                              )
+                              .onError(
+                                (error, stackTrace) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(data.size == 0
+                                        ? 'Gagal Menambahkan data'
+                                        : 'Gagal Mengubah data'),
+                                  ),
+                                ),
+                              );
+
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Pemeriksaan();
                               },
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
-                    ),
+                    ],
                   ),
-                );
+                ),
+              ),
+            ),
+          );
         });
   }
 }
