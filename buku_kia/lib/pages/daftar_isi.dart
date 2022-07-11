@@ -308,9 +308,6 @@ class DaftarIsi extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
                           ],
                         ),
                       ),
