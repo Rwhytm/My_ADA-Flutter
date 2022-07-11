@@ -1,8 +1,10 @@
 import 'package:buku_kia/themes/color.dart';
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class RoundedInputField extends StatelessWidget {
   final String? hintText;
+  final String? label;
   final IconData? icon;
   final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
@@ -13,6 +15,7 @@ class RoundedInputField extends StatelessWidget {
       this.hintText,
       this.icon = Icons.person,
       this.onChanged,
+      this.label,
       required this.keyboard})
       : super(key: key);
 
@@ -27,15 +30,14 @@ class RoundedInputField extends StatelessWidget {
         onChanged: onChanged,
         cursorColor: Colors.black,
         decoration: InputDecoration(
-          // icon: Icon(
-          //   icon,
-          //   color: backgroundPink,
-          // ),
+          floatingLabelAlignment: FloatingLabelAlignment.center,
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          alignLabelWithHint: true,
           hintText: hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(27),
           ),
-          fillColor: putih,
+          fillColor: Colors.white70,
           filled: true,
         ),
       ),

@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: backgroundPink,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             OutlinedText(
               text: Text(
-                "My ADA\n (Aplikasi Disital ANC)",
+                "My ADA\n (Aplikasi Digital ANC)",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   fontSize: 20,
@@ -87,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 250,
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
             Text(
               'Jurusan Kebidanan\nPoliteknik Kesehatan Bengkulu',
@@ -96,6 +96,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontSize: 18,
                   color: Colors.white),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),

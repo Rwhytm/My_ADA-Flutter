@@ -133,16 +133,16 @@ class DaftarIsi extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
-                              "Info Ibu Hamil",
-                              style: daftarIsi,
+                            Image.asset(
+                              'assets/images/cium.png',
+                              width: 100,
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            Image.asset(
-                              'assets/images/cium.png',
-                              width: 100,
+                            Text(
+                              "Info Ibu Hamil",
+                              style: daftarIsi,
                             ),
                           ],
                         ),
@@ -294,19 +294,19 @@ class DaftarIsi extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
+                            Image.asset(
+                              'assets/images/obat.png',
+                              width: 100,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Flexible(
                               child: Text(
                                 "Info\nKeluarga Berencana",
                                 style: daftarIsi,
                                 textAlign: TextAlign.center,
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Image.asset(
-                              'assets/images/obat.png',
-                              width: 100,
                             ),
                             const SizedBox(
                               height: 20,
