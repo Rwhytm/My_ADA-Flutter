@@ -8,6 +8,7 @@ import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/pages/ibu_hamil/ibuhamil2.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/themes/font.dart';
+import 'package:buku_kia/widgets/deskripsi_widget.dart';
 import 'package:buku_kia/widgets/judul_besar.dart';
 import 'package:buku_kia/widgets/list_register.dart';
 import 'package:buku_kia/widgets/subjudulBesar.dart';
@@ -127,20 +128,25 @@ class _Keluhan extends State<Keluhan> {
                                 children: <Widget>[
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari pertama Haid Terakhir (HPHT), tanggal",
+                                        "Hari pertama Haid\nTerakhir (HPHT), tanggal",
                                     jawaban:
                                         "${data.docs[index]['Hari Pertama HAID']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari Taksiran Persalinan (HTP), tanggal",
+                                        "Hari Taksiran\nPersalinan (HTP), tanggal",
                                     jawaban:
                                         "${data.docs[index]['hari taksiran']} ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan: "Lingkar lengan atas",
                                     jawaban:
-                                        "${data.docs[index]['lingkar lengan atas']} cm     Tinggi badan : ${data.docs[index]['tinggi badan']} cm",
+                                        "${data.docs[index]['lingkar lengan atas']} cm ",
+                                  ),
+                                  ListRegistrasi(
+                                    pertanyaan: 'Tinggi Badan',
+                                    jawaban:
+                                        '${data.docs[index]['tinggi badan']} cm',
                                   ),
                                   ListRegistrasi(
                                     pertanyaan: "Golongan darah : ",
@@ -149,13 +155,13 @@ class _Keluhan extends State<Keluhan> {
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Penggunaan kontrasepsi sebelum kehamilan ini",
+                                        "Penggunaan kontrasepsi\nsebelum kehamilan ini",
                                     jawaban:
                                         "${data.docs[index]['penggunaan kontrasepsi']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Riwayat penyakit yang diderita ibu",
+                                        "Riwayat penyakit\nyang diderita ibu",
                                     jawaban:
                                         "${data.docs[index]['riwayat penyakit']}",
                                   ),

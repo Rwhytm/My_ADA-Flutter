@@ -141,7 +141,7 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir",
+                                        "Jarak kehamilan ini\ndengan persalinan terakhir",
                                     jawaban:
                                         "${data.docs[index]['jarak kehamilan']}",
                                   ),

@@ -72,7 +72,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
             ],
             backgroundColor: orangeTua,
             title: Text(
-              'Pemeriksaan Ibu Hamil',
+              'Pemeriksaan Keluhan Ibu Hamil',
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
