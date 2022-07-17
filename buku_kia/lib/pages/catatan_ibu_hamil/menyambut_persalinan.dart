@@ -57,35 +57,35 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                 );
               },
             ),
-            actions: [
-              data.size == 0
-                  ? IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => TambahDataDiriPemeriksaan(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                    )
-                  : IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => TambahDataDiriPemeriksaan(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.edit,
-                        color: Colors.white,
-                      ),
-                    )
-            ],
+            // actions: [
+            //   data.size == 0
+            //       ? IconButton(
+            //           onPressed: () {
+            //             Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 builder: (context) => ,
+            //               ),
+            //             );
+            //           },
+            //           icon: const Icon(
+            //             Icons.add,
+            //             color: Colors.white,
+            //           ),
+            //         )
+            //       : IconButton(
+            //           onPressed: () {
+            //             Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 builder: (context) => TambahDataDiriPemeriksaan(),
+            //               ),
+            //             );
+            //           },
+            //           icon: const Icon(
+            //             Icons.edit,
+            //             color: Colors.white,
+            //           ),
+            //         )
+            // ],
             backgroundColor: orangeTua,
             title: Text(
               'Catatan Kesehatan Ibu Hamil',
@@ -109,59 +109,201 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                           const Center(
                             child: JudulBesar(judul: "MENYAMBUT\nPERSALINAN"),
                           ),
-                          Center(
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              width: width * 0.9,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(27),
-                                color: orangeMuda,
+                          Column(
+                            children: <Widget>[
+                              const ListRegistrasi(
+                                pertanyaan: "Saya ",
+                                jawaban: "-",
                               ),
-                              child: Column(
-                                children: <Widget>[
-                                  ListRegistrasi(
-                                    pertanyaan: "Hamil ke",
-                                    jawaban:
-                                        "${data.docs[index]['hamil ke']} Jumlah persalinan : ${data.docs[index]['jumlah persalinan']}   Jumlah keguguran : ${data.docs[index]['jumlah keguguran']}",
+                              const ListRegistrasi(
+                                pertanyaan: "Alamat",
+                                jawaban: "- ",
+                              ),
+                              const DeskripsiWidget(
+                                  deskripsi:
+                                      'Memberikan kepercayaan kepada nama-nama ini untuk membantu persalinan saya agar aman dan selamat, yang diperkirakan pada',
+                                  padding: 15),
+                              const ListRegistrasi(
+                                pertanyaan: "Bulan",
+                                jawaban: "-",
+                              ),
+                              const ListRegistrasi(
+                                pertanyaan: "Tahun",
+                                jawaban: "-",
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Jumlah anak hidup",
-                                    jawaban:
-                                        "${data.docs[index]['jumlah anak hidup']} ",
+                                  const SizedBox(
+                                    width: 30,
                                   ),
-                                  ListRegistrasi(
-                                    pertanyaan:
-                                        "Jumlah anak lahir kurang bulan",
-                                    jawaban:
-                                        "${data.docs[index]['jumlah anak kurang bulan']} anak ",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir",
-                                    jawaban:
-                                        "${data.docs[index]['jarak kehamilan']}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "status imunisasi TT terakhir",
-                                    jawaban:
-                                        "${data.docs[index]['status imunisasi']}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Penolong persalinan terakhir",
-                                    jawaban:
-                                        "${data.docs[index]['pertolongan persalinan']}",
-                                  ),
-                                  ListRegistrasi(
-                                    pertanyaan: "Cara Persalinan terakhir",
-                                    jawaban:
-                                        "${data.docs[index]['cara persalinan']}",
-                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi: 'Penolong Persalinan',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: 'Dokter/Bidan',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
                                 ],
                               ),
-                            ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untuk Dana Persalinan, disiapkan\nsendiri/ditanggung JKN/dibatu oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untk kendaraan/ambulan desa oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Metode KB setelah melahirkan yang dipilih :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untuk sumbangan darah (golongan darah - )\ndibantu oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ],
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 30,
                           ),
                         ],
                       ),
@@ -175,26 +317,198 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                             child: JudulBesar(judul: "MENYAMBUT\nPERSALINAN"),
                           ),
                           Column(
-                            children: const <Widget>[
-                              ListRegistrasi(
+                            children: <Widget>[
+                              const ListRegistrasi(
                                 pertanyaan: "Saya ",
                                 jawaban: "-",
                               ),
-                              ListRegistrasi(
+                              const ListRegistrasi(
                                 pertanyaan: "Alamat",
                                 jawaban: "- ",
                               ),
-                              DeskripsiWidget(
+                              const DeskripsiWidget(
                                   deskripsi:
                                       'Memberikan kepercayaan kepada nama-nama ini untuk membantu persalinan saya agar aman dan selamat, yang diperkirakan pada',
                                   padding: 15),
-                              ListRegistrasi(
+                              const ListRegistrasi(
                                 pertanyaan: "Bulan",
                                 jawaban: "-",
                               ),
-                              ListRegistrasi(
+                              const ListRegistrasi(
                                 pertanyaan: "Tahun",
                                 jawaban: "-",
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi: 'Penolong Persalinan',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: 'Dokter/Bidan',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untuk Dana Persalinan, disiapkan\nsendiri/ditanggung JKN/dibatu oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untk kendaraan/ambulan desa oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Metode KB setelah melahirkan yang dipilih :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/images/cium.png',
+                                      height: 80,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: const [
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            'Untuk sumbangan darah (golongan darah - )\ndibantu oleh :',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '-',
+                                        padding: 0,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 30,
                               ),
                             ],
                           ),
@@ -202,37 +516,6 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                       ),
                     );
             },
-          ),
-          // floatingActionButtonLocation:
-          //     FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Stack(
-            fit: StackFit.expand,
-            children: [
-              Positioned(
-                bottom: 20,
-                right: 30,
-                child: FloatingActionButton(
-                  backgroundColor: orangeTua,
-                  heroTag: 'next',
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => TabelPemeriksaan(),
-                      ),
-                    );
-                  },
-                  child: const Icon(
-                    Icons.arrow_right,
-                    size: 40,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              // Add more floating buttons if you want
-              // There is no limit
-            ],
           ),
         );
       },
