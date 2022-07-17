@@ -309,5 +309,45 @@ class AuthServices {
     });
   }
 
+//tambah data diri pemeriksaan
+  static Future<User?> menyambutData(
+    String nama,
+    String alamat,
+    String bulan,
+    String tahun,
+    String dokter1,
+    String dokter2,
+    String dana,
+    String kendaraan1,
+    String kendaraan2,
+    String kendaraan3,
+    String metodekb,
+    String goldar,
+    String donor1,
+    String donor2,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_menyambut_persalinan')
+        .doc(user.uid)
+        .set({
+      'nama': nama,
+      'alamat': alamat,
+      'bulan': bulan,
+      'tahun': tahun,
+      'dokter1': dokter1,
+      'dokter2': dokter2,
+      'dana': dana,
+      'kendaraan1': kendaraan1,
+      'kendaraan2': kendaraan2,
+      'kendaraan3': kendaraan3,
+      'metodekb': metodekb,
+      'goldar': goldar,
+      'donor1': donor1,
+      'donor2': donor2,
+    });
+  }
+
   static Stream<User?> get firebaseUserStream => _auth.authStateChanges();
 }

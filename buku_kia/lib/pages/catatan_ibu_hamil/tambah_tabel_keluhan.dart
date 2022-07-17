@@ -162,13 +162,13 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
                               await AuthServices.KeluhanTabel(
                                 tanggalController.text,
                                 keluhanController.text,
+                                (data.size + 1).toString(),
                                 tekananDarahController.text,
                                 beratBadanController.text,
                                 umurKehamilanController.text,
                                 tinggiFundusController.text,
                                 letakJaninController.text,
                                 denyutJantungController.text,
-                                (data.size + 1).toString(),
                               )
                                   .then(
                                     (value) => ScaffoldMessenger.of(context)
@@ -305,13 +305,13 @@ class _TambahTableKeluhan extends State<TambahTableKeluhan> {
                             await AuthServices.KeluhanTabel(
                               tanggalController.text,
                               keluhanController.text,
+                              (data.size + 1).toString(),
                               tekananDarahController.text,
                               beratBadanController.text,
                               umurKehamilanController.text,
                               tinggiFundusController.text,
                               letakJaninController.text,
                               denyutJantungController.text,
-                              (data.size + 1).toString(),
                             )
                                 .then(
                                   (value) => ScaffoldMessenger.of(context)

@@ -1,4 +1,5 @@
 import 'package:buku_kia/commons/services.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/menyambut_persalinan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
@@ -17,17 +18,20 @@ class TambahDataMenyambut extends StatefulWidget {
 }
 
 class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
-  TextEditingController hamilKeController = TextEditingController(text: "");
-  TextEditingController jumlahPersalinanController = TextEditingController();
-  TextEditingController jumlahKeguguranController = TextEditingController();
-  TextEditingController jumlahAnakHidupController = TextEditingController();
-  TextEditingController jumlahAnakMatiController = TextEditingController();
-  TextEditingController jumlahAnakLahirKurangController =
-      TextEditingController();
-  TextEditingController jarakKehamilanController = TextEditingController();
-  TextEditingController statusImunisasiController = TextEditingController();
-  TextEditingController penolongPersalinanController = TextEditingController();
-  TextEditingController caraPersalinanController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
+  TextEditingController alamatController = TextEditingController();
+  TextEditingController bulanController = TextEditingController();
+  TextEditingController tahunController = TextEditingController();
+  TextEditingController dokter1Controller = TextEditingController();
+  TextEditingController dokter2Controller = TextEditingController();
+  TextEditingController danaController = TextEditingController();
+  TextEditingController kendaraan1Controller = TextEditingController();
+  TextEditingController kendaraan2Controller = TextEditingController();
+  TextEditingController kendaraan3Controller = TextEditingController();
+  TextEditingController goldarController = TextEditingController();
+  TextEditingController donor1Controller = TextEditingController();
+  TextEditingController donor2Controller = TextEditingController();
+  TextEditingController metodekbController = TextEditingController();
 
   static FirebaseAuth _auth = FirebaseAuth.instance;
   static User user = _auth.currentUser!;
@@ -40,17 +44,20 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
         .get(); //get the data
     QuerySnapshot snapshot = data;
     if (data.size != 0) {
-      hamilKeController.text = snapshot.docs[0]['hamil ke'];
-      jumlahPersalinanController.text = snapshot.docs[0]['jumlah persalinan'];
-      jumlahKeguguranController.text = snapshot.docs[0]['jumlah keguguran'];
-      jumlahAnakHidupController.text = snapshot.docs[0]['jumlah anak hidup'];
-      jumlahAnakLahirKurangController.text =
-          snapshot.docs[0]['jumlah anak kurang bulan'];
-      jarakKehamilanController.text = snapshot.docs[0]['jarak kehamilan'];
-      statusImunisasiController.text = snapshot.docs[0]['status imunisasi'];
-      penolongPersalinanController.text =
-          snapshot.docs[0]['pertolongan persalinan'];
-      caraPersalinanController.text = snapshot.docs[0]['cara persalinan'];
+      namaController.text = snapshot.docs[0][''];
+      alamatController.text = snapshot.docs[0][''];
+      bulanController.text = snapshot.docs[0][''];
+      tahunController.text = snapshot.docs[0][''];
+      dokter1Controller.text = snapshot.docs[0][''];
+      dokter2Controller.text = snapshot.docs[0][''];
+      danaController.text = snapshot.docs[0][''];
+      kendaraan1Controller.text = snapshot.docs[0][''];
+      kendaraan2Controller.text = snapshot.docs[0][''];
+      kendaraan3Controller.text = snapshot.docs[0][''];
+      metodekbController.text = snapshot.docs[0][''];
+      goldarController.text = snapshot.docs[0][''];
+      donor1Controller.text = snapshot.docs[0][''];
+      donor2Controller.text = snapshot.docs[0][''];
     }
   }
 
@@ -108,7 +115,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: hamilKeController,
+                        controller: namaController,
                         hintText: "Nama",
                       ),
                       const SizedBox(
@@ -116,7 +123,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: jumlahPersalinanController,
+                        controller: alamatController,
                         hintText: "Alamat",
                       ),
                       const SizedBox(
@@ -124,7 +131,23 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: jumlahKeguguranController,
+                        controller: dokter1Controller,
+                        hintText: "Perkiraan Bulan",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: dokter1Controller,
+                        hintText: "Perkiraan Tahun",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: dokter1Controller,
                         hintText: "Dokter/Bidan 1",
                       ),
                       const SizedBox(
@@ -132,7 +155,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: jumlahAnakHidupController,
+                        controller: dokter2Controller,
                         hintText: "Dokter/Bidan 2",
                       ),
                       const SizedBox(
@@ -140,7 +163,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: jumlahAnakLahirKurangController,
+                        controller: danaController,
                         hintText: "Asal Dana Persalinan",
                       ),
                       const SizedBox(
@@ -148,7 +171,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: jarakKehamilanController,
+                        controller: kendaraan1Controller,
                         hintText: "No HP Kendaraan/ambulan 1",
                       ),
                       const SizedBox(
@@ -156,7 +179,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: statusImunisasiController,
+                        controller: kendaraan2Controller,
                         hintText: "No HP Kendaraan/ambulan 2",
                       ),
                       const SizedBox(
@@ -164,7 +187,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: penolongPersalinanController,
+                        controller: kendaraan3Controller,
                         hintText: "No HP Kendaraan/ambulan 3",
                       ),
                       const SizedBox(
@@ -172,7 +195,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: caraPersalinanController,
+                        controller: metodekbController,
                         hintText: "Metode KB setelah melahirkan",
                       ),
                       const SizedBox(
@@ -180,7 +203,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: caraPersalinanController,
+                        controller: goldarController,
                         hintText: "Golongan Darah",
                       ),
                       const SizedBox(
@@ -188,7 +211,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: caraPersalinanController,
+                        controller: donor1Controller,
                         hintText: "Donor Darah 1 (nama, no HP)",
                       ),
                       const SizedBox(
@@ -196,7 +219,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: caraPersalinanController,
+                        controller: donor2Controller,
                         hintText: "Donor Darah 2 (nama, no HP)",
                       ),
                       const SizedBox(
@@ -212,7 +235,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return Pemeriksaan();
+                                return MenyambutPersalinan();
                               },
                             ),
                           );
