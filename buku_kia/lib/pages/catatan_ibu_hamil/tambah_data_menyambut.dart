@@ -251,7 +251,27 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                             donor1Controller.text,
                             donor2Controller.text,
                             createController.text,
-                          );
+                          )
+                              .then(
+                                (value) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(data.size == 0
+                                        ? 'Berhasil Menambahkan data'
+                                        : 'Berhasil Mengubah data'),
+                                  ),
+                                ),
+                              )
+                              .onError(
+                                (error, stackTrace) =>
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(data.size == 0
+                                        ? 'Gagal Menambahkan data'
+                                        : 'Gagal Mengubah data'),
+                                  ),
+                                ),
+                              );
                           await Navigator.push(
                             context,
                             MaterialPageRoute(

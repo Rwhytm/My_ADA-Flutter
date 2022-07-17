@@ -25,6 +25,7 @@ class _TabelPemeriksaanState extends State<TabelPemeriksaan> {
       .collection('pasiens')
       .doc(user.uid)
       .collection('data_pemeriksaan')
+      .orderBy('id', descending: true)
       .snapshots();
   @override
   Widget build(BuildContext context) {

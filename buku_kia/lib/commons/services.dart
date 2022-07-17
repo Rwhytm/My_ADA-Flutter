@@ -121,82 +121,6 @@ class AuthServices {
     });
   }
 
-  //edit registrasi
-  static Future<User?> editregistrasi(
-    String noreg,
-    String nourutKahort,
-    String tanggalMenerima,
-    String namaPetugas,
-    String noHPPetugas,
-    String namaIbu,
-    String ttdIbu,
-    String kehamilanKe,
-    String agamaIbu,
-    String pendidikanIbu,
-    String goldarIbu,
-    String pekerjaanIbu,
-    String noJKN,
-    String namaSuami,
-    String ttdAyah,
-    String agamaAyah,
-    String pendidikanAyah,
-    String goldarAyah,
-    String pekerjaanAyah,
-    String alamatRumah,
-    String kecamatan,
-    String kabupaten,
-    String noHp,
-    String namaAnak,
-    String ttdAnak,
-    String anakKe,
-    String noAkte,
-  ) async {
-    await FirebaseFirestore.instance
-        .collection('pasiens')
-        .doc(user.uid)
-        .collection('data_pasien')
-        .doc(user.uid)
-        .set({
-      'nomor registrasi ibu': noreg,
-      'nomor urut di kahort ibu': nourutKahort,
-      'tanggal menerima buku kia': tanggalMenerima,
-      'nama petugas': namaPetugas,
-      'nomor petugas': noHPPetugas,
-      'nama ibu': namaIbu,
-      'TTL ibu': ttdIbu,
-      'kehamilan ke-': kehamilanKe,
-      'agama ibu': agamaIbu,
-      'pendidikan ibu': pendidikanIbu,
-      'golongan darah ibu': goldarIbu,
-      'pekerjaan ibu': pekerjaanIbu,
-      'no JKN': noJKN,
-      'nama suami': namaSuami,
-      'TTL ayah': ttdAyah,
-      'agama suami': agamaAyah,
-      'pendidikan suami': pendidikanAyah,
-      'golongan darah suami': goldarAyah,
-      'pekerjaan suami': pekerjaanAyah,
-      'alamat rumah': alamatRumah,
-      'kecamatan': kecamatan,
-      'kabupaten': kabupaten,
-      'nomor yang bisa dihubungi': noHp,
-      'nama anak': namaAnak,
-      'TTL anak': ttdAnak,
-      'anak ke': anakKe,
-      'Nomor Akte': noAkte,
-    });
-  }
-
-  static Future getData() async {
-    var snapshot = await FirebaseFirestore.instance
-        .collection('pasiens')
-        .doc(user.uid)
-        .collection('data_pasien')
-        .get();
-
-    return snapshot.docs.map((doc) => doc.data()).toList();
-  }
-
   //tambah data diri pemeriksaan
   static Future<User?> pemeriksaanDataDiri(
     String hamilke,
@@ -236,6 +160,7 @@ class AuthServices {
     String nasihat,
     String keterangan,
     String kapanHarusKembali,
+    int id,
   ) async {
     await FirebaseFirestore.instance
         .collection('pasiens')
@@ -248,6 +173,7 @@ class AuthServices {
       'nasihat': nasihat,
       'keterangan': keterangan,
       'kapan harus kembali': kapanHarusKembali,
+      'id': id,
     });
   }
 
@@ -255,20 +181,19 @@ class AuthServices {
   static Future<User?> KeluhanTabel(
     String tanggal,
     String keluhanSekarang,
-    String id,
     String tekananDarah,
     String beratBadan,
     String umurKehamilan,
     String tinggiFundus,
     String letakJanin,
     String denyutJantung,
+    int id,
   ) async {
     await FirebaseFirestore.instance
         .collection('pasiens')
         .doc(user.uid)
         .collection('data_keluhan')
-        .doc(user.uid + id)
-        .set({
+        .add({
       'tanggal': tanggal,
       'keluhan sekarang': keluhanSekarang,
       'tekanan darah': tekananDarah,
@@ -277,7 +202,7 @@ class AuthServices {
       'tinggi fundus': tinggiFundus,
       'letak janin': letakJanin,
       'denyut jantung': denyutJantung,
-      'id': user.uid + id,
+      'id': id,
     });
   }
 

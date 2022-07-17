@@ -5,6 +5,8 @@ import 'package:buku_kia/pages/wrapper.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/rounded_button.dart';
 import 'package:buku_kia/widgets/rounded_input_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,8 +26,27 @@ class _TambahTablePemeriksaan extends State<TambahTablePemeriksaan> {
   TextEditingController keteranganController = TextEditingController(text: "");
   TextEditingController kapanKembaliController =
       TextEditingController(text: "");
+  int datalength = 0;
+
+  static FirebaseAuth _auth = FirebaseAuth.instance;
+  static User user = _auth.currentUser!;
+  void getData() async {
+    //use a Async-await function to get the data
+    final data = await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('data_pemeriksaan')
+        .get(); //get the data
+    datalength = data.size;
+  }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
   Widget build(BuildContext context) {
 //  Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -111,12 +132,14 @@ class _TambahTablePemeriksaan extends State<TambahTablePemeriksaan> {
                 text: "Simpan",
                 press: () async {
                   await AuthServices.pemeriksaanTabel(
-                          kakiBengkakController.text,
-                          hasilPemeriksaanController.text,
-                          tindakanController.text,
-                          nasihatController.text,
-                          keteranganController.text,
-                          kapanKembaliController.text)
+                    kakiBengkakController.text,
+                    hasilPemeriksaanController.text,
+                    tindakanController.text,
+                    nasihatController.text,
+                    keteranganController.text,
+                    kapanKembaliController.text,
+                    datalength + 1,
+                  )
                       .then(
                         (value) => ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(

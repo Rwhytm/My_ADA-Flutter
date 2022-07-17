@@ -27,6 +27,7 @@ class _TabelKeluhan extends State<TabelKeluhan> {
       .collection('pasiens')
       .doc(user.uid)
       .collection('data_keluhan')
+      .orderBy('id', descending: true)
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -88,7 +89,8 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child: Text(
-                            'Pemeriksaan Ke - ' + (index + 1).toString(),
+                            'Pemeriksaan Ke - ' +
+                                (data.size - (index)).toString(),
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
