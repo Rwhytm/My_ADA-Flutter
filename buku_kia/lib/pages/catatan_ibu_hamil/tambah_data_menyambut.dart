@@ -107,41 +107,41 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                         height: 10,
                       ),
                       RoundedInputField(
-                        keyboard: TextInputType.number,
+                        keyboard: TextInputType.name,
                         controller: hamilKeController,
-                        hintText: "Hamil Ke-",
+                        hintText: "Nama",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       RoundedInputField(
-                        keyboard: TextInputType.number,
+                        keyboard: TextInputType.name,
                         controller: jumlahPersalinanController,
-                        hintText: "Jumlah Persalinan",
+                        hintText: "Alamat",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       RoundedInputField(
-                        keyboard: TextInputType.number,
+                        keyboard: TextInputType.name,
                         controller: jumlahKeguguranController,
-                        hintText: "Jumlah Keguguran",
+                        hintText: "Dokter/Bidan 1",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       RoundedInputField(
-                        keyboard: TextInputType.number,
+                        keyboard: TextInputType.name,
                         controller: jumlahAnakHidupController,
-                        hintText: "Jumlah Anak Hidup",
+                        hintText: "Dokter/Bidan 2",
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       RoundedInputField(
-                        keyboard: TextInputType.number,
+                        keyboard: TextInputType.name,
                         controller: jumlahAnakLahirKurangController,
-                        hintText: "Jumlah anak lahir kurang bulan",
+                        hintText: "Asal Dana Persalinan",
                       ),
                       const SizedBox(
                         height: 10,
@@ -149,8 +149,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       RoundedInputField(
                         keyboard: TextInputType.name,
                         controller: jarakKehamilanController,
-                        hintText:
-                            "Jarak Kehamilan ini dengan persalinan terakhir",
+                        hintText: "No HP Kendaraan/ambulan 1",
                       ),
                       const SizedBox(
                         height: 10,
@@ -158,7 +157,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       RoundedInputField(
                         keyboard: TextInputType.name,
                         controller: statusImunisasiController,
-                        hintText: "Status imunisasi TT terakhir",
+                        hintText: "No HP Kendaraan/ambulan 2",
                       ),
                       const SizedBox(
                         height: 10,
@@ -166,7 +165,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       RoundedInputField(
                         keyboard: TextInputType.name,
                         controller: penolongPersalinanController,
-                        hintText: "Penolong persalinan terakhir",
+                        hintText: "No HP Kendaraan/ambulan 3",
                       ),
                       const SizedBox(
                         height: 10,
@@ -174,7 +173,31 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       RoundedInputField(
                         keyboard: TextInputType.name,
                         controller: caraPersalinanController,
-                        hintText: "Cara persalinan terakhir",
+                        hintText: "Metode KB setelah melahirkan",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: caraPersalinanController,
+                        hintText: "Golongan Darah",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: caraPersalinanController,
+                        hintText: "Donor Darah 1 (nama, no HP)",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      RoundedInputField(
+                        keyboard: TextInputType.name,
+                        controller: caraPersalinanController,
+                        hintText: "Donor Darah 2 (nama, no HP)",
                       ),
                       const SizedBox(
                         height: 10,
