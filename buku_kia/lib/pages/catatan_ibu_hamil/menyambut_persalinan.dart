@@ -357,7 +357,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                 children: [
                                   ClipOval(
                                     child: Image.asset(
-                                      'assets/images/cium.png',
+                                      'assets/images/pesan1.png',
                                       height: 80,
                                       fit: BoxFit.cover,
                                     ),
@@ -395,7 +395,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                 children: [
                                   ClipOval(
                                     child: Image.asset(
-                                      'assets/images/cium.png',
+                                      'assets/images/pesan2.png',
                                       height: 80,
                                       fit: BoxFit.cover,
                                     ),
@@ -426,7 +426,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                 children: [
                                   ClipOval(
                                     child: Image.asset(
-                                      'assets/images/cium.png',
+                                      'assets/images/pesan3.png',
                                       height: 80,
                                       fit: BoxFit.cover,
                                     ),
@@ -461,7 +461,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                 children: [
                                   ClipOval(
                                     child: Image.asset(
-                                      'assets/images/cium.png',
+                                      'assets/images/pesan4.png',
                                       height: 80,
                                       fit: BoxFit.cover,
                                     ),
@@ -492,7 +492,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                 children: [
                                   ClipOval(
                                     child: Image.asset(
-                                      'assets/images/cium.png',
+                                      'assets/images/pesan41.png',
                                       height: 80,
                                       fit: BoxFit.cover,
                                     ),
