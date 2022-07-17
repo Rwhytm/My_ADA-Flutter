@@ -32,6 +32,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
   TextEditingController donor1Controller = TextEditingController();
   TextEditingController donor2Controller = TextEditingController();
   TextEditingController metodekbController = TextEditingController();
+  TextEditingController createController = TextEditingController();
 
   static FirebaseAuth _auth = FirebaseAuth.instance;
   static User user = _auth.currentUser!;
@@ -44,20 +45,23 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
         .get(); //get the data
     QuerySnapshot snapshot = data;
     if (data.size != 0) {
-      namaController.text = snapshot.docs[0][''];
-      alamatController.text = snapshot.docs[0][''];
-      bulanController.text = snapshot.docs[0][''];
-      tahunController.text = snapshot.docs[0][''];
-      dokter1Controller.text = snapshot.docs[0][''];
-      dokter2Controller.text = snapshot.docs[0][''];
-      danaController.text = snapshot.docs[0][''];
-      kendaraan1Controller.text = snapshot.docs[0][''];
-      kendaraan2Controller.text = snapshot.docs[0][''];
-      kendaraan3Controller.text = snapshot.docs[0][''];
-      metodekbController.text = snapshot.docs[0][''];
-      goldarController.text = snapshot.docs[0][''];
-      donor1Controller.text = snapshot.docs[0][''];
-      donor2Controller.text = snapshot.docs[0][''];
+      namaController.text = snapshot.docs[0]['nama'];
+      alamatController.text = snapshot.docs[0]['alamat'];
+      bulanController.text = snapshot.docs[0]['bulan'];
+      tahunController.text = snapshot.docs[0]['tahun'];
+      dokter1Controller.text = snapshot.docs[0]['dokter1'];
+      dokter2Controller.text = snapshot.docs[0]['dokter2'];
+      danaController.text = snapshot.docs[0]['dana'];
+      kendaraan1Controller.text = snapshot.docs[0]['kendaraan1'];
+      kendaraan2Controller.text = snapshot.docs[0]['kendaraan2'];
+      kendaraan3Controller.text = snapshot.docs[0]['kendaraan3'];
+      metodekbController.text = snapshot.docs[0]['metodekb'];
+      goldarController.text = snapshot.docs[0]['goldar'];
+      donor1Controller.text = snapshot.docs[0]['donor1'];
+      donor2Controller.text = snapshot.docs[0]['donor2'];
+      createController.text = snapshot.docs[0]['created_at'];
+    } else {
+      createController.text = DateTime.now().toString();
     }
   }
 
@@ -131,7 +135,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: dokter1Controller,
+                        controller: bulanController,
                         hintText: "Perkiraan Bulan",
                       ),
                       const SizedBox(
@@ -139,7 +143,7 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       ),
                       RoundedInputField(
                         keyboard: TextInputType.name,
-                        controller: dokter1Controller,
+                        controller: tahunController,
                         hintText: "Perkiraan Tahun",
                       ),
                       const SizedBox(
@@ -231,6 +235,23 @@ class _TambahDataMenyambutState extends State<TambahDataMenyambut> {
                       RoundedButton(
                         text: "Simpan",
                         press: () async {
+                          await AuthServices.menyambutData(
+                            namaController.text,
+                            alamatController.text,
+                            bulanController.text,
+                            tahunController.text,
+                            dokter1Controller.text,
+                            dokter2Controller.text,
+                            danaController.text,
+                            kendaraan1Controller.text,
+                            kendaraan2Controller.text,
+                            kendaraan3Controller.text,
+                            metodekbController.text,
+                            goldarController.text,
+                            donor1Controller.text,
+                            donor2Controller.text,
+                            createController.text,
+                          );
                           await Navigator.push(
                             context,
                             MaterialPageRoute(

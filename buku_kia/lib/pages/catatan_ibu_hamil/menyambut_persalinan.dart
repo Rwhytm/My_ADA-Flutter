@@ -110,25 +110,25 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                           ),
                           Column(
                             children: <Widget>[
-                              const ListRegistrasi(
+                              ListRegistrasi(
                                 pertanyaan: "Saya ",
-                                jawaban: "-",
+                                jawaban: "${data.docs[0]['nama']}",
                               ),
-                              const ListRegistrasi(
+                              ListRegistrasi(
                                 pertanyaan: "Alamat",
-                                jawaban: "- ",
+                                jawaban: "${data.docs[0]['alamat']}",
                               ),
                               const DeskripsiWidget(
                                   deskripsi:
                                       'Memberikan kepercayaan kepada nama-nama ini untuk membantu persalinan saya agar aman dan selamat, yang diperkirakan pada',
                                   padding: 15),
-                              const ListRegistrasi(
+                              ListRegistrasi(
                                 pertanyaan: "Bulan",
-                                jawaban: "-",
+                                jawaban: "${data.docs[0]['bulan']}",
                               ),
-                              const ListRegistrasi(
+                              ListRegistrasi(
                                 pertanyaan: "Tahun",
-                                jawaban: "-",
+                                jawaban: "${data.docs[0]['tahun']}",
                               ),
                               const SizedBox(
                                 height: 30,
@@ -150,21 +150,21 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
-                                      DeskripsiWidget(
+                                    children: [
+                                      const DeskripsiWidget(
                                         deskripsi: 'Penolong Persalinan',
                                         padding: 0,
                                       ),
-                                      DeskripsiWidget(
+                                      const DeskripsiWidget(
                                         deskripsi: 'Dokter/Bidan',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi: '${data.docs[0]['dokter1']}',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi: '${data.docs[0]['dokter2']}',
                                         padding: 0,
                                       ),
                                     ],
@@ -188,14 +188,14 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
-                                      DeskripsiWidget(
+                                    children: [
+                                      const DeskripsiWidget(
                                         deskripsi:
                                             'Untuk Dana Persalinan, disiapkan\nsendiri/ditanggung JKN/dibatu oleh :',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi: '${data.docs[0]['dana']}',
                                         padding: 0,
                                       ),
                                     ],
@@ -219,18 +219,25 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       DeskripsiWidget(
                                         deskripsi:
                                             'Untk kendaraan/ambulan desa oleh :',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi:
+                                            '${data.docs[0]['kendaraan1']}',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi:
+                                            '${data.docs[0]['kendaraan2']}',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi:
+                                            '${data.docs[0]['kendaraan3']}',
                                         padding: 0,
                                       ),
                                     ],
@@ -254,14 +261,15 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
-                                      DeskripsiWidget(
+                                    children: [
+                                      const DeskripsiWidget(
                                         deskripsi:
                                             'Metode KB setelah melahirkan yang dipilih :',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi:
+                                            '${data.docs[0]['metodekb']}',
                                         padding: 0,
                                       ),
                                     ],
@@ -285,14 +293,18 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       DeskripsiWidget(
                                         deskripsi:
-                                            'Untuk sumbangan darah (golongan darah - )\ndibantu oleh :',
+                                            'Untuk sumbangan darah (golongan darah ${data.docs[0]['goldar']} )\ndibantu oleh :',
                                         padding: 0,
                                       ),
                                       DeskripsiWidget(
-                                        deskripsi: '-',
+                                        deskripsi: '${data.docs[0]['donor1']}',
+                                        padding: 0,
+                                      ),
+                                      DeskripsiWidget(
+                                        deskripsi: '${data.docs[0]['donor2']}',
                                         padding: 0,
                                       ),
                                     ],

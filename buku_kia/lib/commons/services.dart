@@ -325,6 +325,7 @@ class AuthServices {
     String goldar,
     String donor1,
     String donor2,
+    String create,
   ) async {
     await FirebaseFirestore.instance
         .collection('pasiens')
@@ -346,6 +347,8 @@ class AuthServices {
       'goldar': goldar,
       'donor1': donor1,
       'donor2': donor2,
+      'created_at': create,
+      'updated_at': DateTime.now(),
     });
   }
 
