@@ -1,6 +1,5 @@
 import 'package:buku_kia/pages/catatan_ibu_hamil/menu.dart';
-import 'package:buku_kia/pages/catatan_ibu_hamil/tabel_pemeriksaan.dart';
-import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_menyambut.dart';
 import 'package:buku_kia/themes/color.dart';
 import 'package:buku_kia/widgets/deskripsi_widget.dart';
 import 'package:buku_kia/widgets/judul_besar.dart';
@@ -24,7 +23,7 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
   final Stream<QuerySnapshot> data_user = FirebaseFirestore.instance
       .collection('pasiens')
       .doc(user.uid)
-      .collection('data_diri_pemeriksaan')
+      .collection('data_menyambut_persalinan')
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -57,35 +56,35 @@ class _MenyambutPersalinanState extends State<MenyambutPersalinan> {
                 );
               },
             ),
-            // actions: [
-            //   data.size == 0
-            //       ? IconButton(
-            //           onPressed: () {
-            //             Navigator.of(context).push(
-            //               MaterialPageRoute(
-            //                 builder: (context) => ,
-            //               ),
-            //             );
-            //           },
-            //           icon: const Icon(
-            //             Icons.add,
-            //             color: Colors.white,
-            //           ),
-            //         )
-            //       : IconButton(
-            //           onPressed: () {
-            //             Navigator.of(context).push(
-            //               MaterialPageRoute(
-            //                 builder: (context) => TambahDataDiriPemeriksaan(),
-            //               ),
-            //             );
-            //           },
-            //           icon: const Icon(
-            //             Icons.edit,
-            //             color: Colors.white,
-            //           ),
-            //         )
-            // ],
+            actions: [
+              data.size == 0
+                  ? IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TambahDataMenyambut(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    )
+                  : IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => TambahDataMenyambut(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    )
+            ],
             backgroundColor: orangeTua,
             title: Text(
               'Catatan Kesehatan Ibu Hamil',

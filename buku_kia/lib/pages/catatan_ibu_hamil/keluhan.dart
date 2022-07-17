@@ -127,13 +127,13 @@ class _Keluhan extends State<Keluhan> {
                                 children: <Widget>[
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari pertama Haid Terakhir (HPHT), tanggal : ",
+                                        "Hari pertama Haid Terakhir (HPHT), tanggal",
                                     jawaban:
                                         "${data.docs[index]['Hari Pertama HAID']}",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari Taksiran Persalinan (HTP), tanggal :",
+                                        "Hari Taksiran Persalinan (HTP), tanggal",
                                     jawaban:
                                         "${data.docs[index]['hari taksiran']} ",
                                   ),
@@ -193,34 +193,34 @@ class _Keluhan extends State<Keluhan> {
                                 children: const <Widget>[
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari pertama Haid Terakhir (HPHT), tanggal : ",
+                                        "Hari pertama Haid Terakhir (HPHT), tanggal",
                                     jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Hari Taksiran Persalinan (HTP), tanggal :",
+                                        "Hari Taksiran Persalinan (HTP), tanggal",
                                     jawaban: " - ",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Lingkar lengan atas : ",
+                                    pertanyaan: "Lingkar lengan atas",
                                     jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Golongan darah : ",
+                                    pertanyaan: "Golongan darah",
                                     jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Penggunaan kontrasepsi sebelum kehamilan ini : ",
+                                        "Penggunaan kontrasepsi sebelum kehamilan ini",
                                     jawaban: " - ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Riwayat penyakit yang diderita ibu : ",
+                                        "Riwayat penyakit yang diderita ibu",
                                     jawaban: " - ",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Riwayat alergi : ",
+                                    pertanyaan: "Riwayat alergi",
                                     jawaban: " - ",
                                   ),
                                 ],

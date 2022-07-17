@@ -188,36 +188,34 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                               child: Column(
                                 children: const <Widget>[
                                   ListRegistrasi(
-                                    pertanyaan: "Hamil ke : ",
+                                    pertanyaan: "Hamil ke",
                                     jawaban:
                                         "-    Jumlah persalinan : -   Jumlah keguguran : -",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Jumlah anak hidup :",
+                                    pertanyaan: "Jumlah anak hidup",
                                     jawaban: "- ",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jumlah anak lahir kurang bulan : ",
+                                        "Jumlah anak lahir kurang bulan",
                                     jawaban: "-",
                                   ),
                                   ListRegistrasi(
                                     pertanyaan:
-                                        "Jarak kehamilan ini dengan persalinan terakhir : ",
+                                        "Jarak kehamilan ini dengan persalinan terakhir",
                                     jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan:
-                                        "status imunisasi TT terakhir : ",
+                                    pertanyaan: "status imunisasi TT terakhir",
                                     jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan:
-                                        "Penolong persalinan terakhir : ",
+                                    pertanyaan: "Penolong persalinan terakhir",
                                     jawaban: "-",
                                   ),
                                   ListRegistrasi(
-                                    pertanyaan: "Cara Persalinan terakhir : ",
+                                    pertanyaan: "Cara Persalinan terakhir",
                                     jawaban: "-",
                                   ),
                                 ],
