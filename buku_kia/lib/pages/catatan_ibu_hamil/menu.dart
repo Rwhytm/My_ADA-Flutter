@@ -1,5 +1,6 @@
 import 'package:buku_kia/commons/services.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/menyambut_persalinan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
 import 'package:buku_kia/themes/color.dart';
@@ -33,10 +34,54 @@ class Menu extends StatelessWidget {
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MenyambutPersalinan(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 150,
+                        height: 150,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: catatanColor,
+                          borderRadius: BorderRadius.circular(27),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/form.png',
+                              width: 100,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Flexible(
+                              child: Text(
+                                "Menyambut Persalinan",
+                                textAlign: TextAlign.center,
+                                style: daftarIsi,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Center(
                     child: GestureDetector(
                       onTap: () {
@@ -80,7 +125,7 @@ class Menu extends StatelessWidget {
                 ],
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GestureDetector(
                     onTap: () {
