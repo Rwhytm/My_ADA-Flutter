@@ -1,6 +1,8 @@
 import 'package:buku_kia/pages/catatan_ibu_hamil/keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/pesan_bidan_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_pesan_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_tabel_keluhan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_tabel_pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
@@ -277,14 +279,14 @@ class _TabelKeluhan extends State<TabelKeluhan> {
                   backgroundColor: orangeTua,
                   heroTag: 'next',
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const DaftarIsi(),
+                        builder: (context) => PesanKeluhan(),
                       ),
                     );
                   },
                   child: const Icon(
-                    Icons.home,
+                    Icons.arrow_right,
                     size: 40,
                   ),
                   shape: RoundedRectangleBorder(

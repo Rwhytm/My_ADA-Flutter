@@ -1,4 +1,5 @@
 import 'package:buku_kia/pages/catatan_ibu_hamil/pemeriksaan.dart';
+import 'package:buku_kia/pages/catatan_ibu_hamil/pesan_bidan_pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_data_diri_pemeriksaan.dart';
 import 'package:buku_kia/pages/catatan_ibu_hamil/tambah_tabel_pemeriksaan.dart';
 import 'package:buku_kia/pages/daftar_isi.dart';
@@ -244,14 +245,14 @@ class _TabelPemeriksaanState extends State<TabelPemeriksaan> {
                   backgroundColor: orangeTua,
                   heroTag: 'next',
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const DaftarIsi(),
+                        builder: (context) => PesanPemeriksaan(),
                       ),
                     );
                   },
                   child: const Icon(
-                    Icons.home,
+                    Icons.arrow_right,
                     size: 40,
                   ),
                   shape: RoundedRectangleBorder(

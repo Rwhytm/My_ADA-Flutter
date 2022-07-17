@@ -234,6 +234,30 @@ class AuthServices {
     });
   }
 
+  //tambah pesan keluhan
+  static Future<User?> pesanKeluhan(
+    String pesan,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('pesan_keluhan')
+        .doc(user.uid)
+        .set({'pesan': pesan});
+  }
+
+  //tambah pesan keluhan
+  static Future<User?> pesanPemeriksaan(
+    String pesan,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('pasiens')
+        .doc(user.uid)
+        .collection('pesan_pemeriksaan')
+        .doc(user.uid)
+        .set({'pesan': pesan});
+  }
+
 //tambah data diri pemeriksaan
   static Future<User?> menyambutData(
     String nama,
