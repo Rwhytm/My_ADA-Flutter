@@ -38,109 +38,111 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundPink,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Image.asset(
-                    'assets/images/kemenkes.png',
-                    width: 130,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Image.asset(
-                    'assets/images/poltekes.png',
-                    width: 80,
-                  ),
-                ),
-              ],
-            ),
-            OutlinedText(
-              text: Text(
-                "My ADA\n (Aplikasi Digital ANC)",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  color: unguColor,
-                ),
-              ),
-              strokes: [
-                OutlinedTextStroke(
-                  color: putih,
-                  width: 3,
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Image.asset(
-              'assets/images/happyfamily.png',
-              width: 250,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Jurusan Kebidanan\nPoliteknik Kesehatan Bengkulu',
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                  color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
-                    'Yuniarti,. SST, M.Kes',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Image.asset(
+                      'assets/images/kemenkes.png',
+                      width: 130,
                     ),
                   ),
-                  Text(
-                    'DR. Susilo Damarini. SKM, MPH',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    'Elvi Destariyani, SST, M.Kes',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    'Erlin Puspita, SST, M.Keb',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Image.asset(
+                      'assets/images/poltekes.png',
+                      width: 80,
                     ),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-          ],
+              OutlinedText(
+                text: Text(
+                  "My ADA\n (Aplikasi Digital ANC)",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: unguColor,
+                  ),
+                ),
+                strokes: [
+                  OutlinedTextStroke(
+                    color: putih,
+                    width: 3,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Image.asset(
+                'assets/images/happyfamily.png',
+                width: 250,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Jurusan Kebidanan\nPoliteknik Kesehatan Bengkulu',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Yuniarti,. SST, M.Kes',
+                      style: GoogleFonts.poppins(
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'DR. Susilo Damarini. SKM, MPH',
+                      style: GoogleFonts.poppins(
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Elvi Destariyani, SST, M.Kes',
+                      style: GoogleFonts.poppins(
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Erlin Puspita, SST, M.Keb',
+                      style: GoogleFonts.poppins(
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+            ],
+          ),
         ),
       ),
     );

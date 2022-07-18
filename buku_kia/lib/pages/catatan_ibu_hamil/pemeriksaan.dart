@@ -125,9 +125,16 @@ class _PemeriksaanState extends State<Pemeriksaan> {
                                 children: <Widget>[
                                   ListRegistrasi(
                                     pertanyaan: "Hamil ke",
-                                    jawaban:
-                                        "${data.docs[index]['hamil ke']} Jumlah persalinan : ${data.docs[index]['jumlah persalinan']}   Jumlah keguguran : ${data.docs[index]['jumlah keguguran']}",
+                                    jawaban: "${data.docs[index]['hamil ke']}",
                                   ),
+                                  ListRegistrasi(
+                                      pertanyaan: 'Jumlah Persalinan',
+                                      jawaban:
+                                          '${data.docs[index]['jumlah persalinan']}'),
+                                  ListRegistrasi(
+                                      pertanyaan: 'Jumlah Keguguran',
+                                      jawaban:
+                                          '${data.docs[index]['jumlah keguguran']}'),
                                   ListRegistrasi(
                                     pertanyaan: "Jumlah anak hidup",
                                     jawaban:
