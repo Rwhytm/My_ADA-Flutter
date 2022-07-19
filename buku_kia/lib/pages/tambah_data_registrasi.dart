@@ -165,7 +165,7 @@ class _TambahRegisterState extends State<TambahRegistrasi> {
                     RoundedInputField(
                       keyboard: TextInputType.number,
                       controller: nomorUrutKahortController,
-                      hintText: "Nomor Urut Kahort",
+                      hintText: "Nomor Urut Kohort",
                     ),
                     const SizedBox(
                       height: 10,
